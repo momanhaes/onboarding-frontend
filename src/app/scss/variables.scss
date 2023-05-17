@@ -1,0 +1,67 @@
+// Variables
+:root {
+    --color-primary: #ffbc00;
+    --color-secondary: #000b33;
+    --color-terciery: #0d0d0d;
+    --color-primary-hover: #fccc34;
+    --color-grey-bg: #e1e8ed;
+    --color-background: #ffffff;
+    --color-text: #0d0d0d;
+    --color-shadow: rgba(149, 157, 165, 0.2);
+    --color-bar: rgba(0, 0, 0, 0.075);
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-grey: #717171;
+    --color-green: #28c18d;
+    --color-yellow: #ffbc00;
+    --color-red: #d23b3b;
+    --color-blue: #1da1f2;
+    --color-danger: #e73f5d;
+    --color-danger-hover: #d73754;
+    --color-disabled: #cbcbcb;
+
+    .dark-theme {
+        --color-grey-bg: #6c748c;
+        --color-background: #0d0d0d;
+        --color-text: #ffffff;
+        --color-shadow: rgba(0, 0, 0, 0.2);
+        --color-bar: rgba(0, 0, 0, 0.2);
+    }
+}
+
+// Breakpoints
+$breakpoint-xsmall: 0;
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-wide: 1025px;
+$breakpoint-header: 1079px;
+$breakpoint-xlarge: 1200px;
+$breakpoint-table: 1246px;
+
+// Colors
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-terciery: var(--color-terciery);
+$color-primary-hover: var(--color-primary-hover);
+$color-grey-bg: var(--color-grey-bg);
+$color-background: var(--color-background);
+$color-text: var(--color-text);
+$color-shadow: var(--color-shadow);
+$color-bar: var(--color-bar);
+$color-white: var(--color-white);
+$color-black: var(--color-black);
+$color-grey: var(--color-grey);
+$color-green: var(--color-green);
+$color-yellow: var(--color-yellow);
+$color-red: var(--color-red);
+$color-blue: var(--color-blue);
+$color-danger: var(--color-danger);
+$color-danger-hover: var(--color-danger-hover);
+$color-disabled: var(--color-disabled);
+
+// Grid
+$grid-columns: 12;
+
+// Font
+$font-roboto: Roboto, "Helvetica Neue", sans-serif;
