@@ -1,0 +1,48 @@
+@import "/src/app/scss/includes.scss";
+
+div {
+  padding: 1rem;
+}
+
+table {
+  background-color: $color-background !important;
+}
+
+mat-paginator {
+  background-color: $color-background !important; 
+}
+
+.full-width-table {
+  width: 100%;
+
+  .profile-table {
+    @include start;
+
+    img {
+      width: 10%;
+      border-radius: 50%;
+    }
+  }
+
+  .mat-column-name {
+    width: 25%;
+  }
+
+  .mat-column-email {
+    width: 50%;
+  }
+
+  .mat-column-age {
+    width: 10%;
+    padding-left: 8px;
+  }
+
+  .mat-column-phone {
+    width: 10%;
+  }
+
+  .mat-column-img {
+    width: 5%;
+    cursor: pointer;
+  }
+}

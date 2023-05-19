@@ -1,0 +1,23 @@
+<div *ngFor="let customer of data" [@appeard]="state">
+  <div class="content">
+    <div class="name">
+      <app-item label="Nome" value="{{ customer.name ? customer.name : '-' }}" type="standard"></app-item>
+    </div>
+    
+    <div class="email">
+      <app-item label="E-mail" value="{{ customer.contact.email ? customer.contact.email : '-' }}" type="standard"></app-item>
+    </div>
+
+    <div class="age">
+      <app-item label="Idade" [value]="customer.age" type="standard"></app-item>
+    </div>
+
+    <div class="phone">
+      <app-item label="Telefone" value="{{ customer.contact.phone ? customer.contact.phone : '-' }}" type="standard"></app-item>
+    </div>
+
+    <div class="img">
+      <app-item label="Imagem" [value]="customer.img" type="standard"></app-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include z-index("universe");
+    position: fixed;
+    width: 100%;
+
+    .nav {
+        height: 65px;
+        background: $color-background;
+        box-shadow: 0 1px 15px $color-shadow;
+
+        .content {
+            @include between;
+            margin: 12px 0;
+
+            @include large-and-up {
+                margin: 12px;
+            }
+
+            .menu {
+                @include start;
+
+                .button-menu {
+                    @include start;
+                }
+            }
+        }
+    }
+
+    .highlight {
+        color: $color-primary;
+        font-weight: bold;
+    }
+}

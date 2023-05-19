@@ -1,14 +1,14 @@
 // Variables
 :root {
-    --color-primary: #ffbc00;
-    --color-secondary: #000b33;
-    --color-terciery: #0d0d0d;
-    --color-primary-hover: #fccc34;
-    --color-grey-bg: #e1e8ed;
-    --color-background: #ffffff;
-    --color-text: #0d0d0d;
+    --color-primary: #1da1f2;
+    --color-secondary: #bbdefb;
+    --color-terciery: #657786;
+    --color-primary-hover: #2196f3;
+    --color-secondary-bg: #e1e8ed;
+    --color-background: #f5f8fa;
+    --color-text: #14171a;
     --color-shadow: rgba(149, 157, 165, 0.2);
-    --color-bar: rgba(0, 0, 0, 0.075);
+    --color-border: rgba(0, 0, 0, 0.04);
     --color-white: #ffffff;
     --color-black: #000000;
     --color-grey: #717171;
@@ -21,11 +21,11 @@
     --color-disabled: #cbcbcb;
 
     .dark-theme {
-        --color-grey-bg: #6c748c;
-        --color-background: #0d0d0d;
+        --color-secondary-bg: #141d26;
+        --color-background: #14171a;
         --color-text: #ffffff;
         --color-shadow: rgba(0, 0, 0, 0.2);
-        --color-bar: rgba(0, 0, 0, 0.2);
+        --color-border: rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -44,11 +44,11 @@ $color-primary: var(--color-primary);
 $color-secondary: var(--color-secondary);
 $color-terciery: var(--color-terciery);
 $color-primary-hover: var(--color-primary-hover);
-$color-grey-bg: var(--color-grey-bg);
+$color-secondary-bg: var(--color-secondary-bg);
 $color-background: var(--color-background);
 $color-text: var(--color-text);
 $color-shadow: var(--color-shadow);
-$color-bar: var(--color-bar);
+$color-border: var(--color-border);
 $color-white: var(--color-white);
 $color-black: var(--color-black);
 $color-grey: var(--color-grey);
@@ -65,3 +65,4 @@ $grid-columns: 12;
 
 // Font
 $font-roboto: Roboto, "Helvetica Neue", sans-serif;
+$font-montserrat: "Montserrat", sans-serif;

@@ -1,3 +1,3 @@
 import { environment } from 'src/environments/environment';
 
-export const GITHUB_API = environment.mockAPI;
+export const MOCK_API = environment.mockAPI;

@@ -1,0 +1,21 @@
+@import "/src/app/scss/includes.scss";
+
+button {
+  span,
+  mat-icon {
+    color: $color-white !important;
+    font-weight: 500;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background: $color-primary !important;
+}
+
+.basic {
+  background: $color-background !important;
+}
