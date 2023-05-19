@@ -19,6 +19,10 @@ export const ROUTES: Routes = [
     loadChildren: () => import('./customer/customer.module').then((x) => x.CustomerModule),
   },
   {
+    path: 'styleguide',
+    loadChildren: () => import('./styleguide/styleguide.module').then((m) => m.StyleguideModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },

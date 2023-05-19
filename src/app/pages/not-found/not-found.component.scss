@@ -2,7 +2,7 @@
 
 .root {
     @include grid(32);
-    padding: 5rem 0 5rem 0;
+    padding: 7rem 0 5rem 0;
 
     @include large-and-up {
         padding: 15rem 0 15rem 0;

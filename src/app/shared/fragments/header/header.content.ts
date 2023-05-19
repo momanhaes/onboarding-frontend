@@ -11,4 +11,9 @@ export const HEADER_CONTENT: IHeaderContent[] = [
     icon: 'group',
     label: 'Clientes',
   },
+  {
+    route: '/styleguide',
+    icon: 'format_paint',
+    label: 'Styleguide',
+  },
 ];

@@ -8,7 +8,7 @@
   </div>
 
   <div *ngIf="type === 'standard' && isIcon" class="value" [ngClass]="valueFontSize">
-    <i [class]="value"></i>
+    <mat-icon>{{ value }}</mat-icon>
   </div>
 
   <div *ngIf="type === 'currency'" class="value" [ngClass]="valueFontSize">
