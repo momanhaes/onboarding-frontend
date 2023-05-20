@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // MATERIAL IMPORTS
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
@@ -38,6 +39,7 @@ const MATERIAL_MODULES = [
   MatButtonModule,
   MatInputModule,
   MatMenuModule,
+  MatTabsModule,
   MatSelectModule,
   MatTooltipModule,
   MatTableModule,

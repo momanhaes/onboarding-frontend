@@ -1,5 +1,5 @@
 <form [formGroup]="form">
-  <mat-form-field appearance="outline" [class.error]="hasError" [class.disabled]="disabled">
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" [class.error]="hasError" [class.disabled]="disabled">
     <mat-label [class.disabled]="disabled">{{ label }}</mat-label>
     <input
       [placeholder]="placeholder"

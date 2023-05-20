@@ -14,7 +14,7 @@ export class CustomerService {
     return this.http.get<ICustomer[]>(`${MOCK_API}`);
   }
 
-  public updateTable(customers: ICustomer[], searchTerm: string): void {
+  public updateCustomersEvent(customers: ICustomer[], searchTerm: string): void {
     this.notifier.emit({ customers: customers, searchTerm: searchTerm });
   }
 }

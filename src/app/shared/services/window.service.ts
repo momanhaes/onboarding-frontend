@@ -7,6 +7,6 @@ export class WindowService {
   constructor() {}
 
   get widthMobile(): number {
-    return 1025;
+    return 1189;
   }
 }

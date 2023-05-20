@@ -1,12 +1,12 @@
-<div class="root" [@appeard]="state">
+<div class="root" [@appeard]="state" resize>
   <div class="wrapper">
 
-    <div class="sidebar">
+    <div *ngIf="!isMobile" class="sidebar">
       <div class="sticky">
         <div *ngIf="show" [@list]="content.length">
           <div 
             *ngFor="let page of content" 
-            routerLinkActive="button--active"
+            routerLinkActive="button--active" 
             [routerLink]="page.route" 
             class="button">
 
@@ -18,6 +18,25 @@
     </div>
 
     <div class="content">
+
+      <div class="nav-mobile" *ngIf="isMobile">
+        <div class="container-fluid">
+          <nav [@appeard]="state" mat-tab-nav-bar>
+            <a 
+              *ngFor="let page of content" 
+              [routerLink]="page.route" 
+              #rla="routerLinkActive" 
+              [active]="rla.isActive"
+              routerLinkActive
+              mat-tab-link>
+
+              <mat-icon>{{ page.icon }}</mat-icon>
+              {{ page.label }}
+            </a>
+          </nav>
+        </div>
+      </div>
+
       <router-outlet></router-outlet>
     </div>
 

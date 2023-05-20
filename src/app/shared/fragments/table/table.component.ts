@@ -27,9 +27,10 @@ export class TableComponent implements AfterViewInit, OnInit {
   public displayedColumns: string[] = [
     'name',
     'email',
-    'age',
-    'phone',
-    'img',
+    'cpf',
+    'state',
+    'cel',
+    'edit',
   ];
 
   constructor(private customerService: CustomerService) {}

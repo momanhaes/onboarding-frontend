@@ -44,14 +44,17 @@
                 padding: 32px;
             }
 
-            i {
-                font-size: 18px;
-                color: $color-primary !important;
+            .error {
+                @include center;
+                margin-top: 52px;
+
+                mat-icon {
+                    margin-right: 6px;
+                }
             }
 
-            .fa-clone {
+            mat-icon {
                 cursor: pointer;
-                font-size: 16px;
                 margin-left: 12px;
             }
 
@@ -62,6 +65,10 @@
                 background: $color-secondary-bg;
                 padding: 15px;
                 border-radius: 3px;
+
+                mat-icon {
+                    color: $color-primary !important;
+                }
             }
         }
     }

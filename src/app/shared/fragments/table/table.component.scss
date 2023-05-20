@@ -9,7 +9,7 @@ table {
 }
 
 mat-paginator {
-  background-color: $color-background !important; 
+  background-color: $color-background !important;
 }
 
 .full-width-table {
@@ -25,23 +25,26 @@ mat-paginator {
   }
 
   .mat-column-name {
-    width: 25%;
+    width: 15%;
   }
 
   .mat-column-email {
-    width: 50%;
+    width: 20%;
   }
 
-  .mat-column-age {
-    width: 10%;
-    padding-left: 8px;
+  .mat-column-cpf {
+    width: 20%;
   }
 
-  .mat-column-phone {
-    width: 10%;
+  .mat-column-state {
+    width: 20%;
   }
 
-  .mat-column-img {
+  .mat-column-cel {
+    width: 20%;
+  }
+
+  .mat-column-edit {
     width: 5%;
     cursor: pointer;
   }

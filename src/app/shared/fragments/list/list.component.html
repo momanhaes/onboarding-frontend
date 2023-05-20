@@ -3,21 +3,27 @@
     <div class="name">
       <app-item label="Nome" value="{{ customer.name ? customer.name : '-' }}" type="standard"></app-item>
     </div>
+
+    <div class="edit">
+      <button color="basic" mat-mini-fab>
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
     
     <div class="email">
       <app-item label="E-mail" value="{{ customer.contact.email ? customer.contact.email : '-' }}" type="standard"></app-item>
     </div>
 
-    <div class="age">
-      <app-item label="Idade" [value]="customer.age" type="standard"></app-item>
+    <div class="cpf">
+      <app-item label="CPF" value="{{ customer.cpf ? (customer.cpf | cpf) : '-' }}" type="standard"></app-item>
     </div>
 
-    <div class="phone">
-      <app-item label="Telefone" value="{{ customer.contact.phone ? customer.contact.phone : '-' }}" type="standard"></app-item>
+    <div class="cel">
+      <app-item label="Celular" value="{{ customer.contact.cel ? (customer.contact.cel | cel) : '-' }}" type="standard"></app-item>
     </div>
 
-    <div class="img">
-      <app-item label="Imagem" [value]="customer.img" type="standard"></app-item>
+    <div class="state">
+      <app-item label="Estado" value="{{ customer.address.state ? customer.address.state : '-' }}" type="standard"></app-item>
     </div>
   </div>
 </div>

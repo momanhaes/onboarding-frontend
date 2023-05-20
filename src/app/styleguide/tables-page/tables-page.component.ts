@@ -5,6 +5,7 @@ import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { ICustomer } from 'src/app/shared/interfaces/customer.interface';
 import { CustomerService } from 'src/app/shared/services/customer.service';
 import { ITable, TABLES } from './tables-page.content';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-tables-page',
@@ -13,8 +14,9 @@ import { ITable, TABLES } from './tables-page.content';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class TablesPageComponent implements OnInit {
-  public loading: boolean = true;
+  public isLoading: boolean = true;
   public data: ICustomer[] = [];
+  public error: string = '';
   public show!: boolean;
   public state = 'ready';
 
@@ -37,10 +39,19 @@ export class TablesPageComponent implements OnInit {
 
   public getData(): void {
     setTimeout(() => {
-      this.customerService.getCustomers().subscribe((customers: ICustomer[]) => {
-        this.data = customers;
-        this.loading = false;
-      });
+      this.customerService
+        .getCustomers()
+        .pipe(
+          catchError((err) => {
+            this.error = err;
+            this.isLoading = false;
+            return (this.data = []);
+          })
+        )
+        .subscribe((customers: ICustomer[]) => {
+          this.data = customers;
+          this.isLoading = false;
+        });
     }, 500);
   }
 

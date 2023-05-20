@@ -8,8 +8,7 @@ interface ICustomerAddress {
 }
 
 interface ICustomerContact {
-  ddd: string;
-  phone: string;
+  ddd: number;
   cel: string;
   email: string;
 }

@@ -5,25 +5,30 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
+  background-color: $color-background;
   border-bottom: 1px solid $color-primary;
 
   .name {
-    @include grid-column-span(32);
+    @include grid-column-span(28);
+  }
+
+  .edit {
+    @include grid-column-span(4);
   }
 
   .email {
-    @include grid-column-span(32);
+    @include grid-column-span(20);
   }
 
-  .age {
+  .cpf {
     @include grid-column-span(12);
   }
 
-  .phone {
-    @include grid-column-span(16);
+  .cel {
+    @include grid-column-span(20);
   }
 
-  .img {
-    @include grid-column-span(4);
+  .state {
+    @include grid-column-span(12);
   }
 }

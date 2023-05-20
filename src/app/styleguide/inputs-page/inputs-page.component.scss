@@ -35,7 +35,6 @@
 
             .search {
                 @include start;
-                align-items: baseline;
 
                 app-input {
                     width: 100%;
@@ -45,8 +44,11 @@
                     cursor: default;
                     margin-left: 0px;
                     margin-right: 12px;
-                    font-size: 28px;
                 }
+            }
+
+            .search-text {
+                margin-top: 12px;
             }
 
             @include large-and-down {
