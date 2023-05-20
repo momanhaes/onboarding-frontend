@@ -27,6 +27,7 @@ export class CustomerRegisterComponent implements OnInit {
   public isEdit: boolean = false;
   public state: string = 'ready';
   public error: string = '';
+  public show!: boolean;
 
   constructor(
     private router: Router,
@@ -39,6 +40,10 @@ export class CustomerRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.initalizeForm();
     this.getIDfromCustomer();
+
+    setTimeout(() => {
+      this.show = true;
+    }, 0);
   }
 
   public initalizeForm(): void {

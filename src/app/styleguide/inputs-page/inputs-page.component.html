@@ -8,7 +8,7 @@
       </div>
 
       <div class="row" *ngIf="show" [@list]="inputs.length">
-        <div class="col-12 mb-3" *ngFor="let item of inputs">
+        <div class="col-12 col-md-6 mb-3" *ngFor="let item of inputs">
 
           <ng-container *ngIf="!item.isSearch">
             <div class="label">{{ item.name }}</div>
@@ -24,7 +24,9 @@
             </app-input>
 
             <pre>
+              <span>
               {{ item.code }}
+            </span>
 
               <mat-icon 
                 (click)="clip(item.code)" 
@@ -55,7 +57,9 @@
             <p class="search-text" *ngIf="searchText">Pesquisando por '{{ searchText }}'</p>
 
             <pre>
+              <span>
               {{ item.code }}
+            </span>
 
               <mat-icon 
                 (click)="clip(item.code)" 

@@ -68,6 +68,10 @@
                 background: $color-secondary-bg;
                 padding: 15px;
                 border-radius: 3px;
+
+                mat-icon {
+                    overflow: visible;
+                }
             }
         }
     }

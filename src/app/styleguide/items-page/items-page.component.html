@@ -8,7 +8,7 @@
       </div>
 
       <div class="row" *ngIf="show" [@list]="items.length">
-        <div class="col-12" *ngFor="let item of items">
+        <div class="col-12 col-md-6" *ngFor="let item of items">
             <app-item 
               [label]="item.label" 
               [value]="item.value" 
@@ -16,7 +16,9 @@
             </app-item>
 
             <pre>
-              {{ item.code }}
+              <span>
+                {{ item.code }}
+              </span>
   
               <mat-icon 
                 (click)="clip(item.code)" 

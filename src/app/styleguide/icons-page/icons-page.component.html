@@ -9,15 +9,17 @@
 
       <div class="row" *ngIf="show" [@list]="icons.length">
         <ng-container *ngFor="let item of icons">
-          <div class="col-6" *ngIf="item.isLoading">
+          <div class="col-12 col-md-6" *ngIf="item.isLoading">
             <div class="item">
               <app-spinner [label]="item.label ? item.label : ''" [size]="1.3"></app-spinner>
               <div *ngIf="item.name" class="label loading">{{ item.name }}</div>
             </div>
 
             <pre>
-              {{ item.code }}
-
+              <span>
+                {{ item.code }}
+              </span>
+  
               <mat-icon 
                 (click)="clip(item.code)" 
                 matTooltipPosition="above" 
@@ -33,15 +35,17 @@
 
       <div class="row" *ngIf="show" [@list]="icons.length">
         <ng-container *ngFor="let item of icons">
-          <div class="col-4" *ngIf="!item.isLoading">
+          <div class="col-12 col-md-4" *ngIf="!item.isLoading">
             <div class="item">
               <mat-icon>{{ item.id }}</mat-icon>
               <div class="label">{{ item.name }}</div>
             </div>
 
             <pre>
-              {{ item.code }}
-
+              <span>
+                {{ item.code }}
+              </span>
+  
               <mat-icon 
                 (click)="clip(item.code)" 
                 matTooltipPosition="above" 

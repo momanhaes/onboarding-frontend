@@ -1,7 +1,7 @@
 <div class="root" [@appeard]="state" resize>
   <div class="wrapper">
 
-    <div class="sidebar">
+    <div *ngIf="!isMobile" class="sidebar">
       <div class="sticky">
         <div *ngIf="show" [@list]="content.length">
           <div 
@@ -18,7 +18,28 @@
     </div>
 
     <div class="content">
-      <router-outlet></router-outlet>
+
+      <div class="nav-mobile" *ngIf="isMobile">
+        <div class="container-fluid">
+          <nav [@appeard]="state" mat-tab-nav-bar [tabPanel]="tabPanel">
+            <a 
+              *ngFor="let page of content" 
+              [routerLink]="page.route" 
+              #rla="routerLinkActive" 
+              [active]="rla.isActive"
+              routerLinkActive
+              mat-tab-link>
+
+              <mat-icon>{{ page.icon }}</mat-icon>
+              {{ page.label }}
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <mat-tab-nav-panel #tabPanel>
+        <router-outlet></router-outlet>
+      </mat-tab-nav-panel>
     </div>
 
   </div>

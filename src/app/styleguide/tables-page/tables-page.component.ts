@@ -4,8 +4,9 @@ import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { ICustomer } from 'src/app/shared/interfaces/customer.interface';
 import { CustomerService } from 'src/app/shared/services/customer.service';
+import { WindowService } from 'src/app/shared/services/window.service';
 import { ITable, TABLES } from './tables-page.content';
-import { catchError } from 'rxjs';
+import { Subscription, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-tables-page',
@@ -14,6 +15,8 @@ import { catchError } from 'rxjs';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class TablesPageComponent implements OnInit {
+  public subscribeMobile!: Subscription;
+  public isMobile!: boolean;
   public isLoading: boolean = true;
   public data: ICustomer[] = [];
   public error: string = '';
@@ -22,8 +25,11 @@ export class TablesPageComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
+    private windowService: WindowService,
     private toasty: ToastyService
-  ) {}
+  ) {
+    this.isMobile = window.innerWidth <= windowService.widthMobile;
+  }
 
   public get tables(): ITable[] {
     return TABLES;
@@ -35,6 +41,8 @@ export class TablesPageComponent implements OnInit {
     setTimeout(() => {
       this.show = true;
     }, 0);
+
+    this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
   }
 
   public getData(): void {

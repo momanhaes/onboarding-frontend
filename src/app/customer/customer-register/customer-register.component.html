@@ -21,7 +21,7 @@
 
                     <legend>Detalhes do cliente</legend>
 
-                    <div class="row" [@list]="generalInputs.length">
+                    <div class="row" *ngIf="show" [@list]="generalInputs.length">
                         <ng-container *ngFor="let input of generalInputs">
                             <div [class]="input.class">
                                 <app-input 
@@ -38,7 +38,7 @@
 
                     <legend>Contatos do cliente</legend>
 
-                    <div class="row" [@list]="contactInputs.length">
+                    <div class="row" *ngIf="show" [@list]="contactInputs.length">
                         <ng-container *ngFor="let input of contactInputs">
                             <div [class]="input.class">
                                 <app-input 
@@ -55,7 +55,7 @@
 
                     <legend>Endereço do cliente</legend>
 
-                    <div class="row" [@list]="addressInputs.length">
+                    <div class="row" *ngIf="show" [@list]="addressInputs.length">
                         <ng-container *ngFor="let input of addressInputs">
                             <div [class]="input.class">
                                 <app-input 

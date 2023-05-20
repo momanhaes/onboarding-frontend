@@ -61,5 +61,20 @@
     .content {
         padding: 25px 30px;
         width: 100%;
+
+        @include large-and-down {
+            padding: 25px 0px;
+        }
+
+        .nav-mobile {
+            nav {
+                margin-top: 5rem;
+                width: 100%;
+            }
+
+            mat-icon {
+                margin-right: 12px;
+            }
+        }
     }
 }
