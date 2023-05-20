@@ -2,7 +2,8 @@ interface ICustomerAddress {
   cep: string;
   state: string;
   city: string;
-  address: string;
+  addressName: string;
+  neighborhood: string;
   number: string;
   complement: string;
 }
@@ -19,7 +20,6 @@ export interface ICustomer {
   cnpj?: string;
   name: string;
   birth: string;
-  age: number;
   img: string;
   contact: ICustomerContact;
   address: ICustomerAddress;

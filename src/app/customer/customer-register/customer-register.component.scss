@@ -1,0 +1,78 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+
+    .container-fluid {
+        @include grid-column-span(32);
+        margin-bottom: 32px;
+        margin-top: 32px;
+
+        .content {
+            border: 0px;
+            padding: 64px;
+            margin: 24px 0;
+            border-radius: 0.8rem;
+            background: $color-background;
+            box-shadow: 0px 8px 24px $color-shadow;
+
+            @include large-and-down {
+                padding: 18px;
+            }
+
+            legend {
+                font-size: 16px;
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+
+            .header {
+                text-decoration: none;
+
+                h1 {
+                    margin: 0;
+                    text-align: start;
+                    font-weight: bold;
+
+                    @include large-and-down {
+                        text-align: center;
+                    }
+                }
+
+                p {
+                    margin: 0;
+                    text-align: start;
+
+                    @include large-and-down {
+                        margin-bottom: 24px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .form {
+                .input {
+                    margin-bottom: 8px;
+                }
+            }
+
+            .loading {
+                @include center;
+                margin-top: 52px;
+            }
+
+            .buttons {
+                @include start;
+                margin-top: 1rem;
+
+                @include large-and-down {
+                    @include center;
+                }
+
+                app-button {
+                    margin-right: 16px;
+                }
+            }
+        }
+    }
+}

@@ -21,7 +21,7 @@
 
       <div class="nav-mobile" *ngIf="isMobile">
         <div class="container-fluid">
-          <nav [@appeard]="state" mat-tab-nav-bar>
+          <nav [@appeard]="state" mat-tab-nav-bar [tabPanel]="tabPanel">
             <a 
               *ngFor="let page of content" 
               [routerLink]="page.route" 
@@ -37,7 +37,9 @@
         </div>
       </div>
 
-      <router-outlet></router-outlet>
+      <mat-tab-nav-panel #tabPanel>
+        <router-outlet></router-outlet>
+      </mat-tab-nav-panel>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  mockAPI: 'https://run.mocky.io/v3/8592476d-21f8-4083-9c1d-6cf1b3bf8e2e',
+  mockAPI: 'https://run.mocky.io/v3/b52aa7b4-34f0-46e7-9d13-6632e1949c5f',
 };

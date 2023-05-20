@@ -90,6 +90,10 @@
             .loading {
                 @include center;
                 margin-top: 52px;
+
+                @include large-and-down {
+                    margin-bottom: 32px;
+                }
             }
 
             .error {

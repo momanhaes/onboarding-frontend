@@ -63,8 +63,9 @@ export class CustomerListComponent implements OnInit {
         (item) =>
           item.name?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.contact.email?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.age?.toString().includes(this.searchTerm.toLowerCase()) ||
-          item.contact.cel?.toString().includes(this.searchTerm)
+          item.cpf?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.address.state?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.contact.cel?.toLowerCase().includes(this.searchTerm)
       );
 
       this.customerService.updateCustomersEvent(result, this.searchTerm);

@@ -11,6 +11,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 // PAGES
 import { CustomerComponent } from './customer.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerRegisterComponent } from './customer-register/customer-register.component';
 
 const MODULES = [
   CustomerRoutingModule,
@@ -23,7 +24,8 @@ const MODULES = [
 
 const PAGES = [
   CustomerComponent,
-  CustomerListComponent
+  CustomerListComponent,
+  CustomerRegisterComponent,
 ]
 
 @NgModule({
@@ -31,7 +33,7 @@ const PAGES = [
     ...MODULES
   ],
   declarations: [
-    ...PAGES
+    ...PAGES,
   ],
 })
 export class CustomerModule {}

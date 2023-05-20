@@ -1,0 +1,81 @@
+<div class="root" [@appeard]="state">
+    <div class="container-fluid">
+        <div class="content">
+            <ng-container *ngIf="!isLoading">
+                <div class="header" [@appeard]="state">
+                    <h1 *ngIf="!customer">Novo cliente</h1>
+                    <h1 *ngIf="customer">Cliente {{ customer.name }}</h1>
+                    <p *ngIf="customer">Exibindo detalhes do cliente {{ customer.name }}#{{ customer.id }}</p>
+                </div>
+            </ng-container>
+
+            <div class="loading" *ngIf="isLoading">
+                <app-spinner 
+                    label="Carregando cliente..." 
+                    [size]="1.3"> 
+                </app-spinner>
+            </div>
+
+            <div class="form" *ngIf="!isLoading">
+                <form [formGroup]="form">
+
+                    <legend>Detalhes do cliente</legend>
+
+                    <div class="row" [@list]="generalInputs.length">
+                        <ng-container *ngFor="let input of generalInputs">
+                            <div [class]="input.class">
+                                <app-input 
+                                    [form]="form" 
+                                    [label]="input.label" 
+                                    [placeholder]="input.placeholder"
+                                    [control]="input.control" 
+                                    [type]="input.type" 
+                                    [required]="input.required">
+                                </app-input>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <legend>Contatos do cliente</legend>
+
+                    <div class="row" [@list]="contactInputs.length">
+                        <ng-container *ngFor="let input of contactInputs">
+                            <div [class]="input.class">
+                                <app-input 
+                                    [form]="form" 
+                                    [label]="input.label" 
+                                    [placeholder]="input.placeholder"
+                                    [control]="input.control" 
+                                    [type]="input.type" 
+                                    [required]="input.required">
+                                </app-input>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <legend>Endereço do cliente</legend>
+
+                    <div class="row" [@list]="addressInputs.length">
+                        <ng-container *ngFor="let input of addressInputs">
+                            <div [class]="input.class">
+                                <app-input 
+                                    [form]="form" 
+                                    [label]="input.label" 
+                                    [placeholder]="input.placeholder"
+                                    [control]="input.control" 
+                                    [type]="input.type" 
+                                    [required]="input.required">
+                                </app-input>
+                            </div>
+                        </ng-container>
+                    </div>
+                </form>
+            </div>
+
+            <div class="buttons" *ngIf="!isLoading" [@appeard]="state">
+                <app-button routerLink="/customer/list" icon="arrow_back" theme="secondary" label="Voltar"></app-button>
+                <app-button (click)="action()" icon="save" theme="primary" label="Salvar"></app-button>
+            </div>
+        </div>
+    </div>
+</div>

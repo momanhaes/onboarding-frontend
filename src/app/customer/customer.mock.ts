@@ -6,7 +6,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '123.456.789-00',
     name: 'Fulano de Tal',
     birth: '01/01/1990',
-    age: 33,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 11,
@@ -17,9 +16,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '12345-678',
       state: 'São Paulo',
       city: 'São Paulo',
-      address: 'Rua Exemplo, 123',
+      addressName: 'Rua Exemplo, 123',
       number: '123',
       complement: 'Apto 456',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -28,7 +28,6 @@ export const CUSTOMERS: ICustomer[] = [
     cnpj: '12.345.678/0001-90',
     name: 'Ciclano de Tal',
     birth: '15/06/1985',
-    age: 38,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 21,
@@ -39,9 +38,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '54321-876',
       state: 'Rio de Janeiro',
       city: 'Rio de Janeiro',
-      address: 'Avenida Exemplo, 456',
+      addressName: 'Avenida Exemplo, 456',
       number: '789',
       complement: '',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -49,7 +49,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '987.654.321-01',
     name: 'Beltrano Silva',
     birth: '10/05/1982',
-    age: 41,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 31,
@@ -60,9 +59,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '13579-246',
       state: 'Minas Gerais',
       city: 'Belo Horizonte',
-      address: 'Rua Teste, 789',
+      addressName: 'Rua Teste, 789',
       number: '321',
       complement: 'Bloco C',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -70,7 +70,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '123.456.789-01',
     name: 'José da Silva',
     birth: '05/08/1976',
-    age: 47,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 41,
@@ -81,9 +80,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '98765-432',
       state: 'Paraná',
       city: 'Curitiba',
-      address: 'Avenida Teste, 987',
+      addressName: 'Avenida Teste, 987',
       number: '654',
       complement: 'Sala 101',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -91,7 +91,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '555.555.555-01',
     name: 'Maria Oliveira',
     birth: '20/03/1995',
-    age: 28,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 85,
@@ -102,9 +101,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '65432-109',
       state: 'Ceará',
       city: 'Fortaleza',
-      address: 'Rua Exemplo, 321',
+      addressName: 'Rua Exemplo, 321',
       number: '987',
       complement: '',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -112,7 +112,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '111.111.111-00',
     name: 'Pedro Santos',
     birth: '15/12/1980',
-    age: 43,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 61,
@@ -123,9 +122,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '98765-432',
       state: 'Distrito Federal',
       city: 'Brasília',
-      address: 'Quadra Exemplo, 123',
+      addressName: 'Quadra Exemplo, 123',
       number: '456',
       complement: '',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -133,7 +133,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '222.222.222-00',
     name: 'Ana Costa',
     birth: '02/07/1992',
-    age: 31,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 11,
@@ -144,9 +143,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '12345-678',
       state: 'São Paulo',
       city: 'São Paulo',
-      address: 'Avenida Exemplo, 789',
+      addressName: 'Avenida Exemplo, 789',
       number: '654',
       complement: 'Apto 102',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -154,7 +154,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '333.333.333-00',
     name: 'Rafael Santos',
     birth: '12/09/1987',
-    age: 36,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 21,
@@ -165,9 +164,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '54321-876',
       state: 'Rio de Janeiro',
       city: 'Rio de Janeiro',
-      address: 'Rua Teste, 987',
+      addressName: 'Rua Teste, 987',
       number: '654',
       complement: '',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -175,7 +175,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '444.444.444-00',
     name: 'João Pereira',
     birth: '30/11/1990',
-    age: 33,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 31,
@@ -186,9 +185,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '13579-246',
       state: 'Minas Gerais',
       city: 'Belo Horizonte',
-      address: 'Avenida Exemplo, 123',
+      addressName: 'Avenida Exemplo, 123',
       number: '456',
       complement: '',
+      neighborhood: 'Bairro Teste',
     },
   },
   {
@@ -196,7 +196,6 @@ export const CUSTOMERS: ICustomer[] = [
     cpf: '777.777.777-00',
     name: 'Juliana Silva',
     birth: '25/06/1998',
-    age: 25,
     img: 'https://stonegatesl.com/wp-content/uploads/2021/01/avatar.jpg',
     contact: {
       ddd: 41,
@@ -207,9 +206,10 @@ export const CUSTOMERS: ICustomer[] = [
       cep: '98765-432',
       state: 'Paraná',
       city: 'Curitiba',
-      address: 'Rua Teste, 321',
+      addressName: 'Rua Teste, 321',
       number: '789',
       complement: 'Sala 202',
+      neighborhood: 'Bairro Teste',
     },
   },
 ];
