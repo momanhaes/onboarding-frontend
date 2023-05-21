@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { ToastyService } from 'src/app/shared/services/toasty.service';
-import { IPipe, PIPES } from './pipes-page.content';
+import { IStyleguidePipe } from 'src/app/shared/interfaces/styleguide.interface';
+import { StyleguideService } from '../styleguide.service';
+import { PIPES } from '../styleguide.content';
 
 @Component({
   selector: 'app-pipes-page',
@@ -11,15 +12,11 @@ import { IPipe, PIPES } from './pipes-page.content';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class PipesPageComponent implements OnInit {
+  public content: IStyleguidePipe[] = PIPES;
   public state = 'ready';
   public show!: boolean;
 
-  constructor(private toasty: ToastyService) {}
-
-  public get pipes(): IPipe[] {
-    return PIPES;
-  }
-
+  constructor(private styleguideService: StyleguideService) {}
   ngOnInit() {
     setTimeout(() => {
       this.show = true;
@@ -27,16 +24,6 @@ export class PipesPageComponent implements OnInit {
   }
 
   public clip(code: string): void {
-    this.clipboard(code);
-    this.toasty.show({ text: `${code} copiado!` });
-  }
-
-  public clipboard(word: string): void {
-    const el = document.createElement('textarea');
-    el.value = word;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    this.styleguideService.clip(code);
   }
 }

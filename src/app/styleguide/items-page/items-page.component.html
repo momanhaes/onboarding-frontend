@@ -7,8 +7,8 @@
         <p>Abaixo exemplos de itens (label + value)</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="items.length">
-        <div class="col-12 col-md-6" *ngFor="let item of items">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <div class="col-12 col-md-6" *ngFor="let item of content">
             <app-item 
               [label]="item.label" 
               [value]="item.value" 

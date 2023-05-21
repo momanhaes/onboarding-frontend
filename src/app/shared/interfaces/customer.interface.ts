@@ -20,8 +20,19 @@ export interface ICustomerEvent {
   searchTerm: string;
 }
 
-export interface ICustomerContent {
+export interface ICustomerRoute {
   route: string;
   icon: string;
   label: string;
+}
+
+export interface ICustomerInput {
+  label: string;
+  placeholder: string;
+  control: string;
+  groupControl: string;
+  required: boolean;
+  class: string;
+  type: string;
+  disabled: boolean;
 }

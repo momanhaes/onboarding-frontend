@@ -70,12 +70,6 @@
   }
 }
 
-@mixin breakpoint-header {
-  @media screen and (max-width: #{$breakpoint-header}) {
-    @content;
-  }
-}
-
 @mixin grid($columns-columns: $grid-columns, $GAP: 0) {
   display: -ms-grid;
   display: grid;

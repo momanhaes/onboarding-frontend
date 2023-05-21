@@ -18,6 +18,9 @@ import { IconsPageComponent } from './icons-page/icons-page.component';
 import { PipesPageComponent } from './pipes-page/pipes-page.component';
 import { StyleguideComponent } from './styleguide.component';
 
+// SERVICES
+import { StyleguideService } from './styleguide.service';
+
 const MODULES = [
   StyleguideRoutingModule,
   SharedModule,
@@ -38,6 +41,10 @@ const PAGES = [
   PipesPageComponent
 ];
 
+const SERVICES = [
+  StyleguideService
+];
+
 @NgModule({
   imports: [
     ...MODULES
@@ -45,5 +52,8 @@ const PAGES = [
   declarations: [
     ...PAGES
   ],
+  providers: [
+    ...SERVICES
+  ]
 })
 export class StyleguideModule {}

@@ -7,8 +7,8 @@
         <p>Abaixo a paleta de cores</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="colors.length">
-        <div class="col-12" *ngFor="let color of colors">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <div class="col-12" *ngFor="let color of content">
           <div (click)="clip(color)" class="container-color">
 
             <div 

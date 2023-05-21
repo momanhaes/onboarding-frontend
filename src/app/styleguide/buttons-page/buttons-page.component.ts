@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { ToastyService } from 'src/app/shared/services/toasty.service';
-import { BUTTONS, IButton } from './buttons-page.content';
+import { IStyleguideButton } from 'src/app/shared/interfaces/styleguide.interface';
+import { StyleguideService } from '../styleguide.service';
+import { BUTTONS } from '../styleguide.content';
 
 @Component({
   selector: 'app-buttons-page',
@@ -11,15 +12,11 @@ import { BUTTONS, IButton } from './buttons-page.content';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class ButtonsPageComponent implements OnInit {
+  public content: IStyleguideButton[] = BUTTONS;
   public state = 'ready';
   public show!: boolean;
 
-  constructor(private toasty: ToastyService) {}
-
-  public get buttons(): IButton[] {
-    return BUTTONS;
-  }
-
+  constructor(private styleguideService: StyleguideService) {}
   ngOnInit() {
     setTimeout(() => {
       this.show = true;
@@ -27,16 +24,6 @@ export class ButtonsPageComponent implements OnInit {
   }
 
   public clip(code: string): void {
-    this.clipboard(code);
-    this.toasty.show({ text: `${code} copiado!` });
-  }
-
-  public clipboard(word: string): void {
-    const el = document.createElement('textarea');
-    el.value = word;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    this.styleguideService.clip(code);
   }
 }

@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-export interface IToasty {
-  text: string;
-}
+import { IToasty } from '../../interfaces/shared.interface';
 
 @Component({
   selector: 'app-toasty',

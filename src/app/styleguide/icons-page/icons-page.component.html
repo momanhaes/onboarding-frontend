@@ -7,8 +7,8 @@
         <p>Abaixo exemplos de ícones</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="icons.length">
-        <ng-container *ngFor="let item of icons">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <ng-container *ngFor="let item of content">
           <div class="col-12 col-md-6" *ngIf="item.isLoading">
             <div class="item">
               <app-spinner [label]="item.label ? item.label : ''" [size]="1.3"></app-spinner>
@@ -33,8 +33,8 @@
 
       <div class="bar"></div>
 
-      <div class="row" *ngIf="show" [@list]="icons.length">
-        <ng-container *ngFor="let item of icons">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <ng-container *ngFor="let item of content">
           <div class="col-12 col-md-4" *ngIf="!item.isLoading">
             <div class="item">
               <mat-icon>{{ item.id }}</mat-icon>

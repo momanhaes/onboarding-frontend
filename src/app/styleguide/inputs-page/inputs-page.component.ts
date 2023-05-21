@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { ToastyService } from 'src/app/shared/services/toasty.service';
+import { IStyleguideInput } from 'src/app/shared/interfaces/styleguide.interface';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { EMAIL_PATTERN } from 'src/app/shared/utils/patterns';
-import { IInput, INPUTS } from './inputs-page.content';
+import { StyleguideService } from '../styleguide.service';
+import { INPUTS } from '../styleguide.content';
 
 @Component({
   selector: 'app-inputs-page',
@@ -13,16 +14,13 @@ import { IInput, INPUTS } from './inputs-page.content';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class InputsPageComponent implements OnInit {
+  public content: IStyleguideInput[] = INPUTS;
   public form!: UntypedFormGroup;
   public state = 'ready';
   public show!: boolean;
 
-  constructor(private toasty: ToastyService) {}
-
-  public get inputs(): IInput[] {
-    return INPUTS;
-  }
-
+  constructor(private styleguideService: StyleguideService) {}
+  
   public get searchText(): string {
     return this.form.get('search')?.value;
   }
@@ -43,16 +41,6 @@ export class InputsPageComponent implements OnInit {
   }
 
   public clip(code: string): void {
-    this.clipboard(code);
-    this.toasty.show({ text: `${code} copiado!` });
-  }
-
-  public clipboard(word: string): void {
-    const el = document.createElement('textarea');
-    el.value = word;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    this.styleguideService.clip(code);
   }
 }

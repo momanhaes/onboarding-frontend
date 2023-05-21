@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { APPEARD } from '../shared/animations/appeard.animation';
-import { IContent, STYLEGUIDE_CONTENT } from './styleguide.content';
 import { LIST_ANIMATION_LATERAL } from '../shared/animations/list.animation';
+import { IStyleguideRoute } from '../shared/interfaces/styleguide.interface';
 import { WindowService } from '../shared/services/window.service';
+import { ROUTES } from './styleguide.content';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +13,7 @@ import { Subscription } from 'rxjs';
   animations: [APPEARD, LIST_ANIMATION_LATERAL],
 })
 export class StyleguideComponent implements OnInit {
+  public routes: IStyleguideRoute[] = ROUTES;
   public subscribeMobile!: Subscription;
   public isMobile!: boolean;
   public show!: boolean;
@@ -19,10 +21,6 @@ export class StyleguideComponent implements OnInit {
 
   constructor(private windowService: WindowService) {
     this.isMobile = window.innerWidth <= windowService.widthMobile;
-  }
-
-  public get content(): IContent[] {
-    return STYLEGUIDE_CONTENT;
   }
 
   ngOnInit() {

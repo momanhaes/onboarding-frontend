@@ -7,8 +7,8 @@
         <p>Abaixo exemplos de textos</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="typography.length">
-        <div class="col-12 col-md-6" *ngFor="let item of typography">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <div class="col-12 col-md-6" *ngFor="let item of content">
           <h1 *ngIf="item.name === 'Título'" [id]="item.id" class="title">Título</h1>
           <div *ngIf="item.name !== 'Título'" [id]="item.id" [innerHTML]="item.code"></div>
 

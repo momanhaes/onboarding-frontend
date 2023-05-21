@@ -3,8 +3,8 @@ import { WindowService } from '../../services/window.service';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { KeyType, LocalStorageService } from '../../services/local-storage.service';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import { ETema, IHeaderContent } from '../../interfaces/header.interface';
-import { HEADER_CONTENT } from './header.content';
+import { ETema, IHeaderRoute } from '../../interfaces/shared.interface';
+import { HEADER_ROUTES } from '../../shared.content';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   public themeIcon: { icon: string; label: string };
-  public content: IHeaderContent[] = HEADER_CONTENT;
+  public routes: IHeaderRoute[] = HEADER_ROUTES;
   public subscribeMobile!: Subscription;
   public isMobile: boolean;
   public state = 'ready';

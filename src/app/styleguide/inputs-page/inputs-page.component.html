@@ -7,8 +7,8 @@
         <p>Abaixo exemplos de inputs</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="inputs.length">
-        <div class="col-12 col-md-6 mb-3" *ngFor="let item of inputs">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <div class="col-12 col-md-6 mb-3" *ngFor="let item of content">
 
           <ng-container *ngIf="!item.isSearch">
             <div class="label">{{ item.name }}</div>

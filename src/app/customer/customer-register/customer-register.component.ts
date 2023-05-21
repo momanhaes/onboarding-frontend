@@ -2,16 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
-import { ICustomer } from 'src/app/shared/interfaces/customer.interface';
 import { CustomerService } from 'src/app/shared/services/customer.service';
 import { FormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
-import {
-  ADDRESS_INPUTS,
-  CONTACT_INPUTS,
-  GENERAL_INPUTS,
-  IInput,
-} from './customer.content';
+import { ADDRESS_INPUTS, CONTACT_INPUTS, GENERAL_INPUTS } from '../customer.content';
+import { ICustomer, ICustomerInput } from 'src/app/shared/interfaces/customer.interface';
 
 @Component({
   selector: 'app-customer-register',
@@ -22,9 +17,9 @@ import {
 export class CustomerRegisterComponent implements OnInit {
   public isLoading: boolean = false;
 
-  public generalInputs: IInput[] = GENERAL_INPUTS;
-  public contactInputs: IInput[] = CONTACT_INPUTS;
-  public addressInputs: IInput[] = ADDRESS_INPUTS;
+  public generalInputs: ICustomerInput[] = GENERAL_INPUTS;
+  public contactInputs: ICustomerInput[] = CONTACT_INPUTS;
+  public addressInputs: ICustomerInput[] = ADDRESS_INPUTS;
 
   public form!: UntypedFormGroup;
   public customer!: ICustomer;

@@ -7,8 +7,8 @@
         <p>Abaixo exemplos de botões</p>
       </div>
 
-      <div class="row" *ngIf="show" [@list]="buttons.length">
-        <div class="col-12 col-md-6 mb-3" *ngFor="let item of buttons">
+      <div class="row" *ngIf="show" [@list]="content.length">
+        <div class="col-12 col-md-6 mb-3" *ngFor="let item of content">
           <div class="label">{{ item.label }}</div>
 
           <app-button 

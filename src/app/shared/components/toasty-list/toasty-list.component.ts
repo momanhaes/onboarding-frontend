@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastyService } from '../../services/toasty.service';
-import { IToasty } from '../toasty/toasty.component';
+import { IToasty } from '../../interfaces/shared.interface';
 
 @Component({
   selector: 'app-toasty-list',

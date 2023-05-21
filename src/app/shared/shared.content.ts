@@ -1,6 +1,6 @@
-import { IHeaderContent } from "../../interfaces/header.interface";
+import { IHeaderRoute } from "./interfaces/shared.interface";
 
-export const HEADER_CONTENT: IHeaderContent[] = [
+export const HEADER_ROUTES: IHeaderRoute[] = [
   {
     route: '/home',
     icon: 'home',

@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { IToasty } from '../components/toasty/toasty.component';
+import { IToasty } from '../interfaces/shared.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ToastyService {
