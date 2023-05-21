@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  OnInit,
 } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
@@ -15,7 +14,7 @@ import { APPEARD } from 'src/app/shared/animations/appeard.animation';
   styleUrls: ['./input.component.scss'],
   animations: [APPEARD],
 })
-export class InputComponent implements OnInit, AfterViewInit {
+export class InputComponent implements AfterViewInit {
   public isRequiredError: boolean;
   public isEmailError: boolean;
   public hasError: boolean;
@@ -37,11 +36,10 @@ export class InputComponent implements OnInit, AfterViewInit {
     this.disabled = false;
   }
 
-  ngOnInit(): void {
-    if (this.disabled) { this.form.get(this.control)?.disable({ onlySelf: true, emitEvent: false }); }
-  }
-
   ngAfterViewInit() {
+    if (this.disabled) { this.form.get(this.control)?.disable({ onlySelf: true, emitEvent: false }); }
+    this.cdr.detectChanges();
+
     this.form?.valueChanges.pipe(debounceTime(500)).subscribe(() => {
       this.hasError = this.form.get(this.control)?.errors && (this.form.get(this.control)?.dirty || this.form.get(this.control)?.touched) ? true : false;
       this.isRequiredError = this.form.get(this.control)?.errors?.['required'];
