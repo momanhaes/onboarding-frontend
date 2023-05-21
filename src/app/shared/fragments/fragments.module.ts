@@ -12,6 +12,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from 'src/app/fragments/footer/footer.component';
 
 const MODULES = [
   CommonModule,
@@ -26,6 +27,7 @@ const FRAGMENTS = [
   ListComponent,
   TableComponent,
   HeaderComponent,
+  FooterComponent
 ]; 
 
 @NgModule({
