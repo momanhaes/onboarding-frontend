@@ -22,7 +22,6 @@ export class CustomerListComponent implements OnInit {
   public isLoading: boolean = true;
 
   public searchTerm!: string;
-  public error: string = '';
   public state: string = 'ready';
 
   constructor(private customerService: CustomerService, private windowService: WindowService) {
@@ -38,23 +37,12 @@ export class CustomerListComponent implements OnInit {
 
   private getCustomers(): void {
     setTimeout(() => {
-      this.customerService
-        .getCustomers()
-        .pipe(
-          catchError((err) => {
-            this.error = err;
-            this.isLoading = false;
-            return (this.customers = []);
-          })
-        )
-        .subscribe((customers: ICustomer[]) => {
-          this.customers = customers;
-          this.isLoading = false;
-        });
+      this.customers = this.customerService.getCustomers();
+      this.isLoading = false;
     }, 500);
   }
 
-  public filterCustomers(): void {
+  private filterCustomers(): void {
     this.customerForm.valueChanges.subscribe((searchTerm) => {
       this.searchTerm = searchTerm.customerControl;
       this.showPagination = false;
@@ -62,13 +50,13 @@ export class CustomerListComponent implements OnInit {
       const result: ICustomer[] = this.customers.filter(
         (item) =>
           item.name?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.contact.email?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.email?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.cpf?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.address.state?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.contact.cel?.toLowerCase().includes(this.searchTerm)
+          item.state?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          item.cel?.toLowerCase().includes(this.searchTerm)
       );
-
-      this.customerService.updateCustomersEvent(result, this.searchTerm);
+      
+      this.customerService.filterCustomersEvent(result, this.searchTerm);
     });
   }
 }

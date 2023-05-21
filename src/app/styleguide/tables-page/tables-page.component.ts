@@ -45,21 +45,10 @@ export class TablesPageComponent implements OnInit {
     this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
   }
 
-  public getData(): void {
+  private getData(): void {
     setTimeout(() => {
-      this.customerService
-        .getCustomers()
-        .pipe(
-          catchError((err) => {
-            this.error = err;
-            this.isLoading = false;
-            return (this.data = []);
-          })
-        )
-        .subscribe((customers: ICustomer[]) => {
-          this.data = customers;
-          this.isLoading = false;
-        });
+      this.data = this.customerService.getCustomers();
+      this.isLoading = false;
     }, 500);
   }
 

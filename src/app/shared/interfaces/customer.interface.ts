@@ -1,28 +1,18 @@
-interface ICustomerAddress {
-  cep: string;
-  state: string;
-  city: string;
-  addressName: string;
-  neighborhood: string;
-  number: string;
-  complement: string;
-}
-
-interface ICustomerContact {
-  ddd: number;
-  cel: string;
-  email: string;
-}
-
 export interface ICustomer {
   id: string;
   cpf: string;
   cnpj?: string;
   name: string;
   birth: string;
-  img: string;
-  contact: ICustomerContact;
-  address: ICustomerAddress;
+  cel: string;
+  email: string;
+  cep: string;
+  state: string;
+  city: string;
+  address: string;
+  neighborhood: string;
+  number: string;
+  complement: string;
 }
 
 export interface ICustomerEvent {

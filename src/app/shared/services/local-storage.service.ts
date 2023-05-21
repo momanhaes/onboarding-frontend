@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 
 export enum KeyType {
   TEMA = 'TEMA',
+  MOCK = 'MOCK',
 }
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
-  constructor() {}
-
   /**
    * Verifica se existe uma chave salva.
    * @param {KeyType} key Chave de acesso para consulta.

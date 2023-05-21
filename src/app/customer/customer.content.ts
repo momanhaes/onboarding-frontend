@@ -9,6 +9,6 @@ export const CUSTOMER_CONTENT: ICustomerContent[] = [
   {
     route: '/customer/register',
     icon: 'person_add',
-    label: 'Adicionar Cliente',
+    label: 'Registrar Cliente',
   },
 ];

@@ -28,6 +28,11 @@
 
             .header {
                 text-decoration: none;
+                margin-bottom: 1rem;
+
+                @include large-and-down {
+                    margin-bottom: 2rem;
+                }
 
                 h1 {
                     margin: 0;
@@ -44,7 +49,6 @@
                     text-align: start;
 
                     @include large-and-down {
-                        margin-bottom: 24px;
                         text-align: center;
                     }
                 }
@@ -52,7 +56,7 @@
 
             .form {
                 .input {
-                    margin-bottom: 8px;
+                    margin-bottom: 16px;
                 }
             }
 
@@ -62,15 +66,21 @@
             }
 
             .buttons {
-                @include start;
+                @include between;
                 margin-top: 1rem;
 
-                @include large-and-down {
-                    @include center;
+                .actions {
+                    @include start;
+
+                    app-button {
+                        margin-right: 16px;
+                    }
                 }
 
-                app-button {
-                    margin-right: 16px;
+                .delete {
+                    app-button {
+                        margin-right: 0px;
+                    }
                 }
             }
         }

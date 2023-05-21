@@ -7,7 +7,7 @@
 
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>E-mail</strong></th>
-      <td mat-cell *matCellDef="let row">{{ row.contact.email ? row.contact.email : '-' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.email ? row.email : '-' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="cpf">
@@ -17,17 +17,17 @@
 
     <ng-container matColumnDef="state">
       <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Estado</strong></th>
-      <td mat-cell *matCellDef="let row">{{ row.address.state ? row.address.state : '-' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.state ? row.state : '-' }}</td>
     </ng-container>
     
     <ng-container matColumnDef="cel">
       <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Celular</strong></th>
-      <td mat-cell *matCellDef="let row">{{ row.contact.cel ? (row.contact.cel | cel) : '-' }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.cel ? (row.cel | cel) : '-' }}</td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef><strong>Editar</strong></th>
-      <td matTooltip="Editar fulano" mat-cell *matCellDef="let row"><mat-icon>edit</mat-icon></td>
+      <td [matTooltip]="getTooltip(row)" matTooltipPosition="left" routerLink="" mat-cell *matCellDef="let row" (click)="edit(row)"><mat-icon>edit</mat-icon></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

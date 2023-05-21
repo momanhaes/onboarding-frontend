@@ -5,7 +5,7 @@
                 <div class="header" [@appeard]="state">
                     <h1 *ngIf="!customer">Novo cliente</h1>
                     <h1 *ngIf="customer">Cliente {{ customer.name }}</h1>
-                    <p *ngIf="customer">Exibindo detalhes do cliente {{ customer.name }}#{{ customer.id }}</p>
+                    <p *ngIf="customer">Exibindo detalhes do cliente '{{ customer.name }}#{{ customer.id }}'</p>
                 </div>
             </ng-container>
 
@@ -29,6 +29,7 @@
                                     [label]="input.label" 
                                     [placeholder]="input.placeholder"
                                     [control]="input.control" 
+                                    [disabled]="input.disabled"
                                     [type]="input.type" 
                                     [required]="input.required">
                                 </app-input>
@@ -45,7 +46,8 @@
                                     [form]="form" 
                                     [label]="input.label" 
                                     [placeholder]="input.placeholder"
-                                    [control]="input.control" 
+                                    [control]="input.control"
+                                    [disabled]="input.disabled" 
                                     [type]="input.type" 
                                     [required]="input.required">
                                 </app-input>
@@ -62,7 +64,8 @@
                                     [form]="form" 
                                     [label]="input.label" 
                                     [placeholder]="input.placeholder"
-                                    [control]="input.control" 
+                                    [control]="input.control"
+                                    [disabled]="input.disabled" 
                                     [type]="input.type" 
                                     [required]="input.required">
                                 </app-input>
@@ -73,8 +76,14 @@
             </div>
 
             <div class="buttons" *ngIf="!isLoading" [@appeard]="state">
-                <app-button routerLink="/customer/list" icon="arrow_back" theme="secondary" label="Voltar"></app-button>
-                <app-button (click)="action()" icon="save" theme="primary" label="Salvar"></app-button>
+                <div class="actions">
+                    <app-button (click)="cancel()" routerLink="/customer/list" icon="arrow_back" theme="secondary" label="Voltar"></app-button>
+                    <app-button (click)="action()" icon="save" theme="primary" label="Salvar"></app-button>
+                </div>
+
+                <div class="delete">
+                    <app-button *ngIf="isEdit" (click)="removerCustomer()" icon="delete" theme="warn" label="Excluir"></app-button>
+                </div>
             </div>
         </div>
     </div>

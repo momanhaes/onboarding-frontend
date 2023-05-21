@@ -5,13 +5,13 @@
     </div>
 
     <div class="edit">
-      <button color="basic" mat-mini-fab>
+      <button (click)="edit(customer)" color="basic" mat-mini-fab>
         <mat-icon>edit</mat-icon>
       </button>
     </div>
     
     <div class="email">
-      <app-item label="E-mail" value="{{ customer.contact.email ? customer.contact.email : '-' }}" type="standard"></app-item>
+      <app-item label="E-mail" value="{{ customer.email ? customer.email : '-' }}" type="standard"></app-item>
     </div>
 
     <div class="cpf">
@@ -19,11 +19,11 @@
     </div>
 
     <div class="cel">
-      <app-item label="Celular" value="{{ customer.contact.cel ? (customer.contact.cel | cel) : '-' }}" type="standard"></app-item>
+      <app-item label="Celular" value="{{ customer.cel ? (customer.cel | cel) : '-' }}" type="standard"></app-item>
     </div>
 
     <div class="state">
-      <app-item label="Estado" value="{{ customer.address.state ? customer.address.state : '-' }}" type="standard"></app-item>
+      <app-item label="Estado" value="{{ customer.state ? customer.state : '-' }}" type="standard"></app-item>
     </div>
   </div>
 </div>

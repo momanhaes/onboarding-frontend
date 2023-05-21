@@ -23,6 +23,10 @@ export const ROUTES: Routes = [
         path: 'register',
         component: CustomerRegisterComponent,
       },
+      {
+        path: 'register/:id',
+        component: CustomerRegisterComponent,
+      },
     ],
   },
 ];

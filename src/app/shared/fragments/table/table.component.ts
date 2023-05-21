@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { CustomerService } from '../../services/customer.service';
 import { ICustomer, ICustomerEvent } from '../../interfaces/customer.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -33,7 +34,7 @@ export class TableComponent implements AfterViewInit, OnInit {
     'edit',
   ];
 
-  constructor(private customerService: CustomerService) {}
+  constructor(private router: Router, private customerService: CustomerService) {}
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.data);
@@ -56,6 +57,26 @@ export class TableComponent implements AfterViewInit, OnInit {
       paginator.lastPageLabel = 'Último';
       paginator.firstPageLabel = 'Primeiro';
       paginator.itemsPerPageLabel = 'Itens por página';
+      
+      paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
+        if (length === 0 || pageSize === 0) { return `0 de ${length}`; }
+        length = Math.max(length, 0);
+        const startIndex = page * pageSize;
+        const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+        return `${startIndex + 1} - ${endIndex} de ${length}`;
+      }
     }
+  }
+
+  public getTooltip(customer: ICustomer): string {
+    if (!customer.id) { return ''; }
+
+    return `Editar ${customer.name}`;
+  }
+
+  public edit(customer: ICustomer): void {
+    if (!customer.id) { return; }
+
+    this.router.navigate(['/customer/register', customer.id]);
   }
 }
