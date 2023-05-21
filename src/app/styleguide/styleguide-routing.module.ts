@@ -5,7 +5,6 @@ import { TypographyPageComponent } from './typography-page/typography-page.compo
 import { ColorsPageComponent } from './colors-page/colors-page.component';
 import { InputsPageComponent } from './inputs-page/inputs-page.component';
 import { ButtonsPageComponent } from './buttons-page/buttons-page.component';
-import { TablesPageComponent } from './tables-page/tables-page.component';
 import { ItemsPageComponent } from './items-page/items-page.component';
 import { IconsPageComponent } from './icons-page/icons-page.component';
 import { PipesPageComponent } from './pipes-page/pipes-page.component';
@@ -36,10 +35,6 @@ export const ROUTES: Routes = [
       {
         path: 'buttons',
         component: ButtonsPageComponent,
-      },
-      {
-        path: 'tables',
-        component: TablesPageComponent,
       },
       {
         path: 'items',

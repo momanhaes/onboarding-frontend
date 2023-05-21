@@ -26,11 +26,6 @@ export const STYLEGUIDE_CONTENT: IContent[] = [
     label: 'Buttons',
   },
   {
-    route: '/styleguide/tables',
-    icon: 'table_chart',
-    label: 'Tables',
-  },
-  {
     route: '/styleguide/items',
     icon: 'view_list',
     label: 'Items',
