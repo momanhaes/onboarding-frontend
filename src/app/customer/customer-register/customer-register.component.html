@@ -1,8 +1,8 @@
-<div class="root" [@appeard]="state">
+<div class="root">
     <div class="container-fluid">
-        <div class="content">
+        <div class="content" [@appeard]="state">
             <ng-container *ngIf="!isLoading">
-                <div class="header" [@appeard]="state">
+                <div class="header">
                     <h1 *ngIf="!customer">Novo cliente</h1>
                     <h1 *ngIf="customer">Cliente {{ customer.name }}</h1>
                     <p *ngIf="customer">Exibindo detalhes do cliente '{{ customer.name }}#{{ customer.id }}'</p>
@@ -17,11 +17,11 @@
             </div>
 
             <div class="form" *ngIf="!isLoading">
-                <form [formGroup]="form">
+                <form [formGroup]="form" *ngIf="show" [@appeard]="state">
 
                     <legend>Detalhes do cliente</legend>
 
-                    <div class="row" *ngIf="show" [@list]="generalInputs.length">
+                    <div class="row">
                         <ng-container *ngFor="let input of generalInputs">
                             <div [class]="input.class">
                                 <app-input 
@@ -39,7 +39,7 @@
 
                     <legend>Contatos do cliente</legend>
 
-                    <div class="row" *ngIf="show" [@list]="contactInputs.length">
+                    <div class="row">
                         <ng-container *ngFor="let input of contactInputs">
                             <div [class]="input.class">
                                 <app-input 
@@ -57,7 +57,7 @@
 
                     <legend>Endereço do cliente</legend>
 
-                    <div class="row" *ngIf="show" [@list]="addressInputs.length">
+                    <div class="row">
                         <ng-container *ngFor="let input of addressInputs">
                             <div [class]="input.class">
                                 <app-input 
@@ -75,7 +75,7 @@
                 </form>
             </div>
 
-            <div class="buttons" *ngIf="!isLoading" [@appeard]="state">
+            <div class="buttons" *ngIf="!isLoading">
                 <div class="actions">
                     <app-button (click)="cancel()" routerLink="/customer/list" icon="arrow_back" theme="secondary" label="Voltar"></app-button>
                     <app-button (click)="openDialog()" [disabled]="form.invalid" icon="save" theme="primary" label="Salvar"></app-button>
