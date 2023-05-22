@@ -1,7 +1,7 @@
 export interface ICustomer {
   id: string;
   cpf: string;
-  cnpj?: string;
+  cnpj: string;
   name: string;
   birth: string;
   cel: string;
