@@ -105,6 +105,10 @@ a {
   @include z-index("universe");
 }
 
+.cdk-overlay-backdrop {
+  backdrop-filter: blur(8px);
+}
+
 .mat-mdc-menu-content {
   background-color: $color-background;
 }

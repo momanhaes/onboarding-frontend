@@ -78,7 +78,7 @@
             <div class="buttons" *ngIf="!isLoading" [@appeard]="state">
                 <div class="actions">
                     <app-button (click)="cancel()" routerLink="/customer/list" icon="arrow_back" theme="secondary" label="Voltar"></app-button>
-                    <app-button (click)="openDialog()" icon="save" theme="primary" label="Salvar"></app-button>
+                    <app-button (click)="openDialog()" [disabled]="form.invalid" icon="save" theme="primary" label="Salvar"></app-button>
                 </div>
 
                 <div class="delete">

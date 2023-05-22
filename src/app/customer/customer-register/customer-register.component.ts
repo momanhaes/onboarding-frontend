@@ -131,6 +131,8 @@ export class CustomerRegisterComponent implements OnInit {
   }
 
   public openDialog(): void {
+    if (this.form.invalid) { return; }
+    
     this.isEdit ? this.openEditDialog() : this.openCreateDialog();
   }
 

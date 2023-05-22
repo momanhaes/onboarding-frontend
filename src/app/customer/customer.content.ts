@@ -93,7 +93,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
   {
     class: 'input col-12 col-md-3',
     label: 'Estado',
-    placeholder: 'Digite o nome do estado',
+    placeholder: 'Digite o estado',
     control: 'state',
     groupControl: 'address',
     type: 'text',
@@ -103,7 +103,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
   {
     class: 'input col-12 col-md-3',
     label: 'Cidade',
-    placeholder: 'Digite o nome da cidade',
+    placeholder: 'Digite a cidade',
     control: 'city',
     groupControl: 'address',
     type: 'text',
@@ -113,7 +113,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
   {
     class: 'input col-12 col-md-3',
     label: 'Bairro',
-    placeholder: 'Digite o nome do bairro',
+    placeholder: 'Digite o bairro',
     control: 'neighborhood',
     groupControl: 'address',
     type: 'text',
