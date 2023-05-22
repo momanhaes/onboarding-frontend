@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // MATERIAL IMPORTS
@@ -20,6 +21,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // COMPONENTS
+import { CepComponent } from './cep/cep.component';
 import { ItemComponent } from './item/item.component';
 import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
@@ -58,6 +60,7 @@ const COMPONENTS = [
   ItemComponent,
   ToastyComponent,
   DialogComponent,
+  CepComponent,
   ToastyListComponent,
 ];
 
@@ -70,6 +73,7 @@ const MODULES = [
   FormsModule,
   RouterModule,
   ReactiveFormsModule,
+  HttpClientModule,
   PipesModule,
   NgxMaskModule.forRoot()
 ];

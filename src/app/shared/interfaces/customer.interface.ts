@@ -30,7 +30,6 @@ export interface ICustomerInput {
   label: string;
   placeholder: string;
   control: string;
-  groupControl: string;
   required: boolean;
   class: string;
   type: string;

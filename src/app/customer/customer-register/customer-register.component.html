@@ -60,6 +60,12 @@
                     <legend>Endereço do cliente</legend>
 
                     <div class="row">
+                        <app-cep
+                            (addressByCepEvent)="getAddress($event)"
+                            class="input col-12 col-md-3"
+                            [form]="form">
+                        </app-cep>
+
                         <ng-container *ngFor="let input of addressInputs">
                             <div [class]="input.class">
                                 <app-input 

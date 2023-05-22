@@ -24,3 +24,16 @@ export interface IDialogData {
   message: string;
   origin: string;
 }
+
+export interface ICEP {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+  ibge: string;
+  gia: string;
+  ddd: string;
+  siafi: string;
+}

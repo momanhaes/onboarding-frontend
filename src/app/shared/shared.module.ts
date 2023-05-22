@@ -10,6 +10,7 @@ import { WindowService } from './services/window.service';
 import { CustomerService } from './services/customer.service';
 import { NotificationService } from './services/notification.service';
 import { LocalStorageService } from './services/local-storage.service';
+import { CEPService } from './services/cep.service';
 
 const MODULES = [
   ComponentsModule,
@@ -21,6 +22,7 @@ const SERVICES = [
   NotificationService,
   CustomerService,
   WindowService,
+  CEPService
 ];
 
 @NgModule({

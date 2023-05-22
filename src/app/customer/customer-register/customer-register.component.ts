@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { EOrigin } from 'src/app/shared/interfaces/shared.interface';
+import { EOrigin, ICEP } from 'src/app/shared/interfaces/shared.interface';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { CustomerService } from 'src/app/shared/services/customer.service';
@@ -88,6 +88,22 @@ export class CustomerRegisterComponent implements OnInit {
     this.isLoading = false;
   }
 
+  public getAddress(cep: ICEP) {
+    if (!cep.cep) { 
+      this.form.patchValue({ address: '', neighborhood: '', state: '', city: '', complement: '', number: '' });
+      return;
+    }
+
+    this.form.patchValue({
+      address: cep.logradouro,
+      neighborhood: cep.bairro,
+      state: cep.uf,
+      city: cep.localidade,
+      complement: cep.complemento,
+      number: '',
+    });
+  }
+
   public removerCustomer(): void {
     this.isLoading = true;
 
@@ -141,14 +157,14 @@ export class CustomerRegisterComponent implements OnInit {
       {
         data: {
           title: 'Atenção! Você decidiu excluir.',
-          message: `Tem certeza que deseja remover o cliente '${this.customer.name}'`,
+          message: `Tem certeza que deseja remover o cliente '${this.customer.name}'?`,
           origin: EOrigin.DELETE,
         },
       }
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result.confirm && result.origin === EOrigin.DELETE) {
+      if (result?.confirm && result.origin === EOrigin.DELETE) {
         this.removerCustomer();
       }
     });
@@ -160,14 +176,14 @@ export class CustomerRegisterComponent implements OnInit {
       {
         data: {
           title: 'Atenção! Você decidiu editar.',
-          message: `Tem certeza que deseja alterar os dados do cliente '${this.customer.name}'`,
+          message: `Tem certeza que deseja alterar os dados do cliente '${this.customer.name}'?`,
           origin: EOrigin.EDIT,
         },
       }
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result.confirm && result.origin === EOrigin.EDIT) {
+      if (result?.confirm && result.origin === EOrigin.EDIT) {
         this.action();
       }
     });
@@ -179,14 +195,14 @@ export class CustomerRegisterComponent implements OnInit {
       {
         data: {
           title: 'Atenção! Você decidiu criar.',
-          message: `Tem certeza que deseja inserir o cliente '${this.form.value.name}'`,
+          message: `Tem certeza que deseja inserir o cliente '${this.form.value.name}'?`,
           origin: EOrigin.CREATE,
         },
       }
     );
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result.confirm && result.origin === EOrigin.CREATE) {
+      if (result?.confirm && result.origin === EOrigin.CREATE) {
         this.action();
       }
     });
