@@ -1,0 +1,18 @@
+@import "/src/app/scss/includes.scss";
+
+.dialog {
+    background: $color-background;
+
+    h1 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    div {
+        @include center;
+
+        app-button {
+            margin: 16px 8px;
+        }
+    }
+}

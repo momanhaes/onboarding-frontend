@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,8 +23,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ItemComponent } from './item/item.component';
 import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastyComponent } from './toasty/toasty.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastyListComponent } from './toasty-list/toasty-list.component';
 
 // DIRECTIVES
@@ -45,6 +47,7 @@ const MATERIAL_MODULES = [
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
+  MatDialogModule,
 ];
 
 const COMPONENTS = [
@@ -53,6 +56,7 @@ const COMPONENTS = [
   SpinnerComponent,
   ItemComponent,
   ToastyComponent,
+  DialogComponent,
   ToastyListComponent,
 ];
 

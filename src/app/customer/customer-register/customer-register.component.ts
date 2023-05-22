@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { CustomerService } from 'src/app/shared/services/customer.service';
 import { FormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { ADDRESS_INPUTS, CONTACT_INPUTS, GENERAL_INPUTS } from '../customer.content';
 import { ICustomer, ICustomerInput } from 'src/app/shared/interfaces/customer.interface';
+import { EOrigin } from 'src/app/shared/interfaces/shared.interface';
 
 @Component({
   selector: 'app-customer-register',
@@ -31,6 +34,7 @@ export class CustomerRegisterComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public dialog: MatDialog,
     private route: ActivatedRoute,
     private toasty: ToastyService,
     private formBuilder: FormBuilder,
@@ -115,16 +119,75 @@ export class CustomerRegisterComponent implements OnInit {
     }, 500);
   }
 
+  public cancel(): void {
+    this.router.navigate(['/customer/list']);
+  }
+
   public action(): void {
-    if (this.form.invalid) {
-      return;
-    }
+    if (this.form.invalid) { return; }
 
     const customer: ICustomer = this.form.value;
     this.isEdit ? this.updateCustomer(customer) : this.createCustomer(customer);
   }
 
-  public cancel(): void {
-    this.router.navigate(['/customer/list']);
+  public openDialog(): void {
+    this.isEdit ? this.openEditDialog() : this.openCreateDialog();
+  }
+
+  public openRemoveDialog(): void {
+    const dialogRef: MatDialogRef<DialogComponent> = this.dialog.open(
+      DialogComponent,
+      {
+        data: {
+          title: 'Atenção! Você decidiu excluir.',
+          message: `Tem certeza que deseja remover o cliente '${this.customer.name}'`,
+          origin: EOrigin.DELETE,
+        },
+      }
+    );
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result.confirm && result.origin === EOrigin.DELETE) {
+        this.removerCustomer();
+      }
+    });
+  }
+
+  public openEditDialog(): void {
+    const dialogRef: MatDialogRef<DialogComponent> = this.dialog.open(
+      DialogComponent,
+      {
+        data: {
+          title: 'Atenção! Você decidiu editar.',
+          message: `Tem certeza que deseja alterar os dados do cliente '${this.customer.name}'`,
+          origin: EOrigin.EDIT,
+        },
+      }
+    );
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result.confirm && result.origin === EOrigin.EDIT) {
+        this.action();
+      }
+    });
+  }
+
+  public openCreateDialog(): void {
+    const dialogRef: MatDialogRef<DialogComponent> = this.dialog.open(
+      DialogComponent,
+      {
+        data: {
+          title: 'Atenção! Você decidiu criar.',
+          message: `Tem certeza que deseja inserir o cliente '${this.form.value.name}'`,
+          origin: EOrigin.CREATE,
+        },
+      }
+    );
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result.confirm && result.origin === EOrigin.CREATE) {
+        this.action();
+      }
+    });
   }
 }
