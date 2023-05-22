@@ -13,6 +13,14 @@ export const ROUTES: ICustomerRoute[] = [
   },
 ];
 
+const MASKS = {
+  cpf: '000.000.000-00',
+  cnpj: '00.000.000/0000-00',
+  birth: '00/00/0000',
+  cel: '(00) 00000-0000',
+  cep: '00000-000',
+}
+
 export const GENERAL_INPUTS: ICustomerInput[] = [
   {
     class: 'input col-12 col-md-12',
@@ -23,6 +31,7 @@ export const GENERAL_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-4',
@@ -33,6 +42,7 @@ export const GENERAL_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: MASKS.cpf,
   },
   {
     class: 'input col-12 col-md-4',
@@ -43,6 +53,7 @@ export const GENERAL_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: false,
     disabled: false,
+    mask: MASKS.cnpj,
   },
   {
     class: 'input col-12 col-md-4',
@@ -53,6 +64,7 @@ export const GENERAL_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: false,
     disabled: false,
+    mask: MASKS.birth,
   },
 ];
 
@@ -66,6 +78,7 @@ export const CONTACT_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: MASKS.cel,
   },
   {
     class: 'input col-12 col-md-6',
@@ -76,6 +89,7 @@ export const CONTACT_INPUTS: ICustomerInput[] = [
     type: 'email',
     required: true,
     disabled: false,
+    mask: '',
   },
 ];
 
@@ -89,6 +103,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: MASKS.cep,
   },
   {
     class: 'input col-12 col-md-3',
@@ -99,6 +114,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-3',
@@ -109,6 +125,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-3',
@@ -119,6 +136,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-6',
@@ -129,6 +147,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: true,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-4',
@@ -139,6 +158,7 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: false,
     disabled: false,
+    mask: '',
   },
   {
     class: 'input col-12 col-md-2',
@@ -149,5 +169,6 @@ export const ADDRESS_INPUTS: ICustomerInput[] = [
     type: 'text',
     required: false,
     disabled: false,
+    mask: '',
   },
 ];

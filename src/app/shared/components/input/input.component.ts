@@ -24,6 +24,7 @@ export class InputComponent implements AfterViewInit {
   @Input() required: boolean;
   @Input() disabled: boolean;
   @Input() type!: string;
+  @Input() mask!: string;
   @Input() label!: string;
   @Input() control!: string;
   @Input() placeholder!: string;

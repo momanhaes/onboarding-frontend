@@ -33,6 +33,7 @@ import { ResizeDirective } from '../directives/resize.directive';
 
 // MODULES
 import { PipesModule } from '../pipes/pipes.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 const MATERIAL_MODULES = [
   MatToolbarModule,
@@ -70,6 +71,7 @@ const MODULES = [
   RouterModule,
   ReactiveFormsModule,
   PipesModule,
+  NgxMaskModule.forRoot()
 ];
 
 @NgModule({

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { EOrigin } from 'src/app/shared/interfaces/shared.interface';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ToastyService } from 'src/app/shared/services/toasty.service';
 import { CustomerService } from 'src/app/shared/services/customer.service';
-import { FormBuilder, FormControl, UntypedFormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { ADDRESS_INPUTS, CONTACT_INPUTS, GENERAL_INPUTS } from '../customer.content';
 import { ICustomer, ICustomerInput } from 'src/app/shared/interfaces/customer.interface';
-import { EOrigin } from 'src/app/shared/interfaces/shared.interface';
+import { EMAIL_PATTERN } from 'src/app/shared/utils/patterns';
 
 @Component({
   selector: 'app-customer-register',
@@ -52,19 +53,17 @@ export class CustomerRegisterComponent implements OnInit {
 
   public initalizeForm(): void {
     this.form = this.formBuilder.group({
-      id: new FormControl(''),
-      cpf: new FormControl(''),
+      cpf: new FormControl('', Validators.required),
       cnpj: new FormControl(''),
-      name: new FormControl(''),
+      name: new FormControl('', [ Validators.required, Validators.minLength(3) ]),
       birth: new FormControl(''),
-      img: new FormControl(''),
-      cel: new FormControl(''),
-      email: new FormControl(''),
-      cep: new FormControl(''),
-      state: new FormControl(''),
-      city: new FormControl(''),
-      address: new FormControl(''),
-      neighborhood: new FormControl(''),
+      cel: new FormControl('', Validators.required),
+      email: new FormControl('', [ Validators.required, Validators.pattern(EMAIL_PATTERN) ]),
+      cep: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      neighborhood: new FormControl('', Validators.required),
       number: new FormControl(''),
       complement: new FormControl(''),
     });

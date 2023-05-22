@@ -35,4 +35,5 @@ export interface ICustomerInput {
   class: string;
   type: string;
   disabled: boolean;
+  mask: string;
 }
