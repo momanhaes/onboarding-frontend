@@ -24,6 +24,12 @@ mat-paginator {
     }
   }
 
+  .mat-mdc-row {
+    &:hover {
+      background-color: $color-secondary-bg !important;
+    }
+  }
+
   .mat-column-name {
     width: 15%;
   }
