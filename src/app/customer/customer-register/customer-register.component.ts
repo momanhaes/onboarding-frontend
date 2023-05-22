@@ -69,25 +69,6 @@ export class CustomerRegisterComponent implements OnInit {
     });
   }
 
-  public getCustomerById(): void {
-    const id = this.route.snapshot.params['id'];
-
-    if (id) {
-      this.isEdit = true;
-      this.isLoading = true;
-
-      setTimeout(() => {
-        this.customer = this.customerService.getCustomerById(id);
-        this.fillForm();
-      }, 500);
-    }
-  }
-
-  public fillForm(): void {
-    this.form.patchValue(this.customer);
-    this.isLoading = false;
-  }
-
   public getAddress(cep: ICEP) {
     if (!cep.cep) { 
       this.form.patchValue({ address: '', neighborhood: '', state: '', city: '', complement: '', number: '' });
@@ -102,6 +83,26 @@ export class CustomerRegisterComponent implements OnInit {
       complement: cep.complemento,
       number: '',
     });
+  }
+
+  public getCustomerById(): void {
+    const id = this.route.snapshot.params['id'];
+
+    if (id) {
+      this.customer = this.customerService.getCustomerById(id);
+
+      if (!this.customer?.id) {
+        this.router.navigate(['/customer/list']);
+      }
+
+      this.isEdit = true;
+      this.isLoading = true;
+
+      setTimeout(() => {
+        this.form.patchValue(this.customer);
+        this.isLoading = false;
+      }, 500);
+    }
   }
 
   public removerCustomer(): void {
