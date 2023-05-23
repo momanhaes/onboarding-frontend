@@ -47,7 +47,7 @@ Abra [http://localhost:4200](http://localhost:4200) em seu navegador.
 
 * `/styleguide/inputs` - Página do _styleguide_ referente aos _inputs_ do projeto.
 
-* `/styleguide/buttons` - Página do _styleguide_ referente aos botões do Angular Material implementados no projeto.
+* `/styleguide/buttons` - Página do _styleguide_ referente aos botões do projeto.
 
 * `/styleguide/items` - Página do _styleguide_ referente aos itens _(label + value)_ do projeto.
 
