@@ -35,49 +35,27 @@ Abra [http://localhost:4200](http://localhost:4200) em seu navegador.
 
 ### Rotas públicas da aplicação
 
-`/home`
+`/home` Página inicial de apresentação do projeto.
 
-* Página inicial de apresentação do projeto.
+`/customer/list` Página de acesso à listagem de clientes.
 
-`/customer/list`
+`/customer/register` Página de acesso ao registro de clientes.
 
-* Página de acesso à listagem de clientes.
+`/styleguide/typography` Página do _styleguide_ referente a tipografia do projeto.
 
-`/customer/list`
+`/styleguide/colors` Página do _styleguide_ referente a paleta de cores do projeto.
 
-* Página de acesso ao registro de clientes.
+`/styleguide/inputs` Página do _styleguide_ referente aos _inputs_ do projeto.
 
-`/styleguide/typography`
+`/styleguide/buttons` Página do _styleguide_ referente aos botões do Angular Material implementados no projeto.
 
-* Página do _styleguide_ referente a tipografia do projeto.
+`/styleguide/items` Página do _styleguide_ referente aos itens _(label + value)_ do projeto.
 
-`/styleguide/colors`
+`/styleguide/icons` Página do _styleguide_ referente aos ícones do projeto.
 
-* Página do _styleguide_ referente a paleta de cores do projeto.
+`/styleguide/pipes` Página do _styleguide_ referente aos _pipes_ do Angular implementados no projeto.
 
-`/styleguide/inputs`
-
-* Página do _styleguide_ referente aos _inputs_ do projeto.
-
-`/styleguide/buttons`
-
-* Página do _styleguide_ referente aos botões do Angular Material implementados no projeto.
-
-`/styleguide/items`
-
-* Página do _styleguide_ referente aos itens _(label + value)_ do projeto.
-
-`/styleguide/icons`
-
-* Página do _styleguide_ referente aos ícones do projeto.
-
-`/styleguide/pipes`
-
-* Página do _styleguide_ referente aos _pipes_ do Angular implementados no projeto.
-
-`/**`
-
-* Página _default_ para erros 404 _(not found)_ a fim lidar com rotas não programadas do sistema.
+`/**` Página _default_ para erros 404 _(not found)_ a fim lidar com rotas não programadas do sistema.
 
 ## Testes
 
