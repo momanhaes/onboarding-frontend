@@ -49,9 +49,9 @@ export class CustomerListComponent implements OnInit {
 
       const result: ICustomer[] = this.customers.filter(
         (item) =>
+          item.id?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.name?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.email?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          item.cpf?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.state?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
           item.cel?.toLowerCase().includes(this.searchTerm)
       );
