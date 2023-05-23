@@ -5,8 +5,8 @@ import {
   Input,
 } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { debounceTime } from 'rxjs/operators';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-input',
@@ -15,27 +15,21 @@ import { APPEARD } from 'src/app/shared/animations/appeard.animation';
   animations: [APPEARD],
 })
 export class InputComponent implements AfterViewInit {
-  public isRequiredError: boolean;
-  public isEmailError: boolean;
-  public hasError: boolean;
-  public state = 'ready';
+  public isRequiredError: boolean = false;
+  public isEmailError: boolean = false;
+  public hasError: boolean = false;
+  public state: string = 'ready';
 
   @Input() form!: UntypedFormGroup;
-  @Input() required: boolean;
-  @Input() disabled: boolean;
-  @Input() type!: string;
-  @Input() mask!: string;
-  @Input() label!: string;
-  @Input() control!: string;
-  @Input() placeholder!: string;
+  @Input() required: boolean = false;
+  @Input() disabled: boolean = false;
+  @Input() placeholder: string = '';
+  @Input() type: string = 'text';
+  @Input() control: string = '';
+  @Input() label: string = '';
+  @Input() mask: string = '';
 
-  constructor(private cdr: ChangeDetectorRef) {
-    this.isRequiredError = false;
-    this.isEmailError = false;
-    this.hasError = false;
-    this.required = false;
-    this.disabled = false;
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     if (this.disabled) { this.form.get(this.control)?.disable({ onlySelf: true, emitEvent: false }); }

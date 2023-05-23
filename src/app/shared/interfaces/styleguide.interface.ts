@@ -34,6 +34,7 @@ export interface IStyleguideInput {
   required: boolean;
   disabled: boolean;
   placeholder: string;
+  mask: string;
   isSearch?: boolean;
 }
 

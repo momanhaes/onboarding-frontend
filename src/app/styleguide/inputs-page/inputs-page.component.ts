@@ -3,6 +3,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { IStyleguideInput } from 'src/app/shared/interfaces/styleguide.interface';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
+import { ICEP } from 'src/app/shared/interfaces/shared.interface';
 import { EMAIL_PATTERN } from 'src/app/shared/utils/patterns';
 import { StyleguideService } from '../styleguide.service';
 import { INPUTS } from '../styleguide.content';
@@ -15,11 +16,15 @@ import { INPUTS } from '../styleguide.content';
 })
 export class InputsPageComponent implements OnInit {
   public content: IStyleguideInput[] = INPUTS;
+  public cep: ICEP = {} as ICEP;
   public form!: UntypedFormGroup;
-  public state = 'ready';
+  public state: string = 'ready';
+  public cepCode: string;
   public show!: boolean;
 
-  constructor(private styleguideService: StyleguideService) {}
+  constructor(private styleguideService: StyleguideService) {
+    this.cepCode = `<app-cep [form]="form" [required]="false" (addressByCepEvent)="getAddress($event)"></app-cep>`;
+  }
   
   public get searchText(): string {
     return this.form.get('search')?.value;
@@ -31,8 +36,13 @@ export class InputsPageComponent implements OnInit {
       search: new UntypedFormControl(''),
       password: new UntypedFormControl(''),
       disabled: new UntypedFormControl(''),
-      required: new UntypedFormControl('', [Validators.required]),
-      email: new UntypedFormControl('', [Validators.pattern(EMAIL_PATTERN)]),
+      required: new UntypedFormControl('', [ Validators.required ]),
+      email: new UntypedFormControl('', [ Validators.pattern(EMAIL_PATTERN) ]),
+      cpf: new UntypedFormControl(''),
+      cnpj: new UntypedFormControl(''),
+      birth: new UntypedFormControl(''),
+      cel: new UntypedFormControl(''),
+      cep: new UntypedFormControl(''),
     });
 
     setTimeout(() => {
@@ -42,5 +52,20 @@ export class InputsPageComponent implements OnInit {
 
   public clip(code: string): void {
     this.styleguideService.clip(code);
+  }
+
+  public getAddress(cep: ICEP) {
+    if (!cep.cep) { return this.cep = {} as ICEP; }
+
+    return this.cep = cep;
+  }
+
+  public cleanCep(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const cep: string = target?.value.replace(/\.|\-/g, '');
+
+    if (cep.length !== 8) return this.cep = {} as ICEP;
+
+    return this.cep;
   }
 }

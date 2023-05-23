@@ -62,6 +62,7 @@
                     <div class="row">
                         <app-cep
                             (addressByCepEvent)="getAddress($event)"
+                            [required]="true"
                             class="input col-12 col-md-3"
                             [form]="form">
                         </app-cep>

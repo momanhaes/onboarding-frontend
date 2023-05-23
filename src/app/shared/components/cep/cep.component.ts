@@ -14,6 +14,7 @@ export class CepComponent {
   public error: string = '';
 
   @Output() addressByCepEvent = new EventEmitter<ICEP>();
+  @Input() required: boolean = false;
   @Input() form!: FormGroup;
 
   constructor(private cepService: CEPService) {}

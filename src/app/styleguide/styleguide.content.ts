@@ -9,6 +9,8 @@ import {
   IStyleguideTypography,
 } from '../shared/interfaces/styleguide.interface';
 
+import { EMasks } from '../customer/customer.content';
+
 export const ROUTES: IStyleguideRoute[] = [
   {
     route: '/styleguide/typography',
@@ -258,6 +260,7 @@ export const INPUTS: IStyleguideInput[] = [
     required: false,
     disabled: false,
     placeholder: 'Input padrão',
+    mask: '',
   },
   {
     name: 'Required',
@@ -268,6 +271,7 @@ export const INPUTS: IStyleguideInput[] = [
     required: true,
     disabled: false,
     placeholder: 'Input required',
+    mask: '',
   },
   {
     name: 'Disabled',
@@ -278,6 +282,7 @@ export const INPUTS: IStyleguideInput[] = [
     required: false,
     disabled: true,
     placeholder: 'Input disabled',
+    mask: '',
   },
   {
     name: 'Email',
@@ -288,16 +293,7 @@ export const INPUTS: IStyleguideInput[] = [
     required: false,
     disabled: false,
     placeholder: 'Input email',
-  },
-  {
-    name: 'Password',
-    code: '<app-input [form]="form" type="password" label="Password" control="password" [disabled]="false" placeholder="Input password"></app-input>',
-    label: 'Password',
-    type: 'password',
-    control: 'password',
-    required: false,
-    disabled: false,
-    placeholder: 'Input password',
+    mask: '',
   },
   {
     name: 'Search',
@@ -309,6 +305,66 @@ export const INPUTS: IStyleguideInput[] = [
     disabled: false,
     placeholder: 'Input search',
     isSearch: true,
+    mask: '',
+  },
+  {
+    name: 'Password',
+    code: '<app-input [form]="form" type="password" label="Password" control="password" [disabled]="false" [required]="false" placeholder="Input password"></app-input>',
+    label: 'Password',
+    type: 'password',
+    control: 'password',
+    required: false,
+    disabled: false,
+    placeholder: 'Input password',
+    mask: '',
+  },
+  {
+    name: 'CPF',
+    code: '<app-input [form]="form" type="text" label="CPF" control="cpf" [required]="false" [disabled]="false" placeholder="Input CPF" mask="000.000.000-00"></app-input>',
+    label: 'CPF',
+    type: 'text',
+    control: 'cpf',
+    required: false,
+    disabled: false,
+    placeholder: 'Input CPF',
+    isSearch: false,
+    mask: EMasks.CPF,
+  },
+  {
+    name: 'CNPJ',
+    code: '<app-input [form]="form" type="text" label="CNPJ" control="cnpj" [required]="false" [disabled]="false" placeholder="Input CNPJ" mask="00.000.000/0000-00"></app-input>',
+    label: 'CNPJ',
+    type: 'text',
+    control: 'cnpj',
+    required: false,
+    disabled: false,
+    placeholder: 'Input CNPJ',
+    isSearch: false,
+    mask: EMasks.CNPJ,
+  },
+  {
+    name: 'Data de Nascimento',
+    code: '<app-input [form]="form" type="text" label="Data de nascimento" control="birth" [required]="false" [disabled]="false" placeholder="Input data de nascimento" mask="00/00/0000"></app-input>',
+    label: 'Data de nascimento',
+    type: 'text',
+    control: 'birth',
+    required: false,
+    disabled: false,
+    placeholder: 'Input data de nascimento',
+    isSearch: false,
+    mask: EMasks.BIRTH,
+  },
+  {
+    name: 'Celular',
+    code: '<app-input [form]="form" type="text" label="Celular" control="cel" [required]="false" [disabled]="false" placeholder="Input celular" mask="(00) 00000-0000"></app-input>',
+    label: 'Celular',
+    type: 'text',
+    control: 'cel',
+    required: false,
+    disabled: false,
+    placeholder: 'Input celular',
+    isSearch: false,
+    mask: EMasks.CEL,
   },
 ];
 

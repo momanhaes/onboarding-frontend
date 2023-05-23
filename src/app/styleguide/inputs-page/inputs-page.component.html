@@ -16,7 +16,8 @@
             <app-input 
               [form]="form" 
               [type]="item.type" 
-              [label]="item.label" 
+              [label]="item.label"
+              [mask]="item.mask" 
               [control]="item.control" 
               [required]="item.required"
               [disabled]="item.disabled"
@@ -24,16 +25,14 @@
             </app-input>
 
             <pre>
-              <span>
-              {{ item.code }}
-            </span>
+              <span>{{ item.code }}</span>
 
-              <mat-icon 
-                (click)="clip(item.code)" 
-                matTooltipPosition="above" 
-                matTooltip="Clique para copiar">
-                content_copy
-              </mat-icon>
+                <mat-icon 
+                  (click)="clip(item.code)" 
+                  matTooltipPosition="above" 
+                  matTooltip="Clique para copiar">
+                  content_copy
+                </mat-icon>
             </pre>
           </ng-container>
 
@@ -41,7 +40,7 @@
             <div class="label">{{ item.name }}</div>
 
             <div class="search">
-              <mat-icon>search</mat-icon>
+              <mat-icon>person_search</mat-icon>
     
               <app-input 
                 [form]="form" 
@@ -57,9 +56,7 @@
             <p class="search-text" *ngIf="searchText">Pesquisando por '{{ searchText }}'</p>
 
             <pre>
-              <span>
-              {{ item.code }}
-            </span>
+              <span>{{ item.code }}</span>
 
               <mat-icon 
                 (click)="clip(item.code)" 
@@ -69,6 +66,26 @@
               </mat-icon>
             </pre>
           </ng-container>
+        </div>
+
+        <div class="col-12" [@appeard]="state">
+          <div class="label">CEP</div>
+          <app-cep [form]="form" [required]="false" (input)="cleanCep($event)" (addressByCepEvent)="getAddress($event)"></app-cep>
+
+          <pre *ngIf="cep.cep && form.value.cep">
+            {{ cep | json }}
+          </pre>
+
+          <pre>
+            <span>{{ cepCode }}</span>
+
+            <mat-icon 
+              (click)="clip(cepCode)" 
+              matTooltipPosition="above" 
+              matTooltip="Clique para copiar">
+              content_copy
+            </mat-icon>
+          </pre>
         </div>
       </div>
 
