@@ -18,7 +18,6 @@ export class CustomerListComponent implements OnInit {
   public subscribeMobile: Subscription;
 
   public customers: ICustomer[] = [];
-  public showPagination: boolean = true;
   public isLoading: boolean = true;
 
   public searchTerm!: string;
@@ -45,7 +44,6 @@ export class CustomerListComponent implements OnInit {
   private filterCustomers(): void {
     this.customerForm.valueChanges.subscribe((searchTerm) => {
       this.searchTerm = searchTerm.customerControl;
-      this.showPagination = false;
 
       const result: ICustomer[] = this.customers.filter(
         (item) =>

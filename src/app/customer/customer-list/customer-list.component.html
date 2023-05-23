@@ -23,7 +23,7 @@
 
       <ng-container *ngIf="!isLoading && customers.length">
         <div class="customer-table" *ngIf="!isMobile">
-          <app-table [showPagination]="showPagination" [data]="customers"></app-table>
+          <app-table [data]="customers"></app-table>
         </div>
         
         <div class="customer-list" *ngIf="isMobile">

@@ -20,7 +20,6 @@ export class TableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort) public sort!: MatSort;
   
   @Input() public data!: ICustomer[];
-  @Input() public showPagination: boolean = true;
 
   public dataSource!: MatTableDataSource<ICustomer>;
   public state = 'ready';
@@ -40,7 +39,7 @@ export class TableComponent implements AfterViewInit, OnInit {
     this.dataSource = new MatTableDataSource(this.data);
 
     this.customerService.notifier.subscribe((event: ICustomerEvent) => {
-      this.dataSource = new MatTableDataSource(event.customers);
+      this.dataSource.data = event.customers;
     });
   }
 
@@ -57,16 +56,17 @@ export class TableComponent implements AfterViewInit, OnInit {
       paginator.lastPageLabel = 'Último';
       paginator.firstPageLabel = 'Primeiro';
       paginator.itemsPerPageLabel = 'Itens por página';
-      
-      paginator.getRangeLabel = (page: number, pageSize: number, length: number) => {
-        if (length === 0 || pageSize === 0) { return `0 de ${length}`; }
-
-        length = Math.max(length, 0);
-        const startIndex = page * pageSize;
-        const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
-        return `${startIndex + 1} - ${endIndex} de ${length}`;
-      }
+      paginator.getRangeLabel = this.getPaginatorRangeLabel;
     }
+  }
+
+  public getPaginatorRangeLabel(page: number, pageSize: number, length: number): string {
+    if (length === 0 || pageSize === 0) { return `0 de ${length}`; }
+
+    length = Math.max(length, 0);
+    const startIndex = page * pageSize;
+    const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+    return `${startIndex + 1} - ${endIndex} de ${length}`;
   }
 
   public getTooltip(customer: ICustomer): string {
