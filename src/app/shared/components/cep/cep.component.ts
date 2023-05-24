@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { catchError, distinctUntilChanged } from 'rxjs';
 import { ICEP } from '../../interfaces/shared.interface';
 import { CEPService } from '../../services/cep.service';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cep',
@@ -15,7 +15,8 @@ export class CepComponent {
 
   @Output() addressByCepEvent = new EventEmitter<ICEP>();
   @Input() required: boolean = false;
-  @Input() form!: FormGroup;
+  @Input() form!: UntypedFormGroup;
+  @Input() control: string = 'cep';
 
   constructor(private cepService: CEPService) {}
 
