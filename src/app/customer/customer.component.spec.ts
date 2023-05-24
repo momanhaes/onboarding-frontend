@@ -1,28 +1,36 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { WindowService } from '../shared/services/window.service';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CustomerComponent } from './customer.component';
+import { CustomerModule } from './customer.module';
+import { Subscription } from 'rxjs';
 
 describe('CustomerComponent', () => {
   let component: CustomerComponent;
   let fixture: ComponentFixture<CustomerComponent>;
+  let windowService: WindowService;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ CustomerComponent ]
-    })
-    .compileComponents();
-  }));
+      imports: [BrowserAnimationsModule, CustomerModule, RouterTestingModule],
+      declarations: [CustomerComponent],
+      providers: [WindowService],
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(CustomerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CustomerComponent);
+    component = fixture.componentInstance;
+    windowService = TestBed.inject(WindowService);
+    spyOn(windowService.isMobile, 'subscribe').and.returnValue(new Subscription());
+  });
+
+  it('Deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
 });

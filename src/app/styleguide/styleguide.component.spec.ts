@@ -1,7 +1,8 @@
-/* tslint:disable:no-unused-variable */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { StyleguideComponent } from './styleguide.component';
+import { StyleguideModule } from './styleguide.module';
 
 describe('StyleguideComponent', () => {
   let component: StyleguideComponent;
@@ -9,17 +10,16 @@ describe('StyleguideComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ BrowserAnimationsModule ],
-      declarations: [ StyleguideComponent ]
-    })
-    .compileComponents();
-    
+      imports: [BrowserAnimationsModule, StyleguideModule, RouterTestingModule],
+      declarations: [StyleguideComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(StyleguideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
 });
