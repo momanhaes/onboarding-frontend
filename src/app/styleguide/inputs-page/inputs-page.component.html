@@ -53,7 +53,7 @@
               </app-input>
             </div>
 
-            <p class="search-text" *ngIf="searchText">Pesquisando por '{{ searchText }}'</p>
+            <p class="search-text" *ngIf="form.value?.search">Pesquisando por '{{ form.value.search }}'</p>
 
             <pre>
               <span>{{ item.code }}</span>

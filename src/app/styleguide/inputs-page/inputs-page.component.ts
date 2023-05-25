@@ -25,10 +25,6 @@ export class InputsPageComponent implements OnInit {
   constructor(private styleguideService: StyleguideService) {
     this.cepCode = `<app-cep [form]="form" [required]="false" (addressByCepEvent)="getAddress($event)"></app-cep>`;
   }
-  
-  public get searchText(): string {
-    return this.form.get('search')?.value;
-  }
 
   ngOnInit() {
     this.form = new UntypedFormGroup({
