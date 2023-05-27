@@ -13,9 +13,9 @@ import { ROUTES } from './customer.content';
 })
 export class CustomerComponent implements OnInit {
   public routes: ICustomerRoute[] = ROUTES;
+  public state: string = 'ready';
+  public show: boolean = false;
   public isMobile!: boolean;
-  public show!: boolean;
-  public state = 'ready';
 
   constructor(private windowService: WindowService) {
     this.isMobile = window.innerWidth <= windowService.widthMobile;
