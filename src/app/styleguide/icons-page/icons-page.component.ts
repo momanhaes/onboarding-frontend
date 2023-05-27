@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { IStyleguideIcon } from 'src/app/shared/interfaces/styleguide.interface';
-import { StyleguideService } from '../styleguide.service';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { ICONS } from '../styleguide.content';
 
 @Component({

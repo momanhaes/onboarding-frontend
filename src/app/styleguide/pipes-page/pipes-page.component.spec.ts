@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PipesPageComponent } from './pipes-page.component';
-import { StyleguideService } from '../styleguide.service';
 import { StyleguideModule } from '../styleguide.module';
 import { PIPES } from '../styleguide.content';
 

@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { TypographyPageComponent } from './typography-page.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { StyleguideService } from '../styleguide.service';
 import { StyleguideModule } from '../styleguide.module';
 import { TYPOGRAPHY } from '../styleguide.content';
 

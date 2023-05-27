@@ -1,10 +1,10 @@
+import { IStyleguideColor } from 'src/app/shared/interfaces/styleguide.interface';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColorsPageComponent } from './colors-page.component';
-import { StyleguideService } from '../styleguide.service';
 import { StyleguideModule } from '../styleguide.module';
 import { COLORS } from '../styleguide.content';
-import { IStyleguideColor } from 'src/app/shared/interfaces/styleguide.interface';
 
 describe('ColorsPageComponent', () => {
   let component: ColorsPageComponent;

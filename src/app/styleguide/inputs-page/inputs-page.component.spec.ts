@@ -1,9 +1,9 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ICEP } from 'src/app/shared/interfaces/shared.interface';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputsPageComponent } from './inputs-page.component';
-import { StyleguideService } from '../styleguide.service';
 import { StyleguideModule } from '../styleguide.module';
 import { INPUTS } from '../styleguide.content';
 

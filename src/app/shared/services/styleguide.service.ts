@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToastyService } from '../shared/services/toasty.service';
-import { IStyleguideColor } from '../shared/interfaces/styleguide.interface';
+import { ToastyService } from './toasty.service';
+import { IStyleguideColor } from '../interfaces/styleguide.interface';
 
 @Injectable({ providedIn: 'root' })
 export class StyleguideService {

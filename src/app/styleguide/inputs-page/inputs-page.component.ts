@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { IStyleguideInput } from 'src/app/shared/interfaces/styleguide.interface';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ICEP } from 'src/app/shared/interfaces/shared.interface';
 import { EMAIL_PATTERN } from 'src/app/shared/utils/patterns';
-import { StyleguideService } from '../styleguide.service';
 import { INPUTS } from '../styleguide.content';
 
 @Component({

@@ -19,7 +19,7 @@ import { PipesPageComponent } from './pipes-page/pipes-page.component';
 import { StyleguideComponent } from './styleguide.component';
 
 // SERVICES
-import { StyleguideService } from './styleguide.service';
+import { StyleguideService } from '../shared/services/styleguide.service';
 
 const MODULES = [
   StyleguideRoutingModule,

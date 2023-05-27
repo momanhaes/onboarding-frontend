@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { IStyleguideColor } from 'src/app/shared/interfaces/styleguide.interface';
+import { StyleguideService } from '../../shared/services/styleguide.service';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
-import { StyleguideService } from '../styleguide.service';
 import { COLORS } from '../styleguide.content';
 
 @Component({
