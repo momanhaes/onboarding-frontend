@@ -4,7 +4,6 @@ import { CustomerService } from 'src/app/shared/services/customer.service';
 import { WindowService } from 'src/app/shared/services/window.service';
 import { ICustomer } from 'src/app/shared/interfaces/customer.interface';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
-import { Subscription, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-customer-list',
@@ -15,7 +14,6 @@ import { Subscription, catchError } from 'rxjs';
 export class CustomerListComponent implements OnInit {
   public isMobile: boolean;
   public customerForm: UntypedFormGroup;
-  public subscribeMobile: Subscription;
 
   public customers: ICustomer[] = [];
   public isLoading: boolean = true;
@@ -26,7 +24,7 @@ export class CustomerListComponent implements OnInit {
   constructor(private customerService: CustomerService, private windowService: WindowService) {
     this.isMobile = window.innerWidth <= windowService.widthMobile;
     this.customerForm = new UntypedFormGroup({ customerControl: new UntypedFormControl('') });
-    this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
+    this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
   }
 
   ngOnInit() {

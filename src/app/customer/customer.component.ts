@@ -4,7 +4,6 @@ import { WindowService } from '../shared/services/window.service';
 import { ICustomerRoute } from '../shared/interfaces/customer.interface';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { ROUTES } from './customer.content';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -14,7 +13,6 @@ import { Subscription } from 'rxjs';
 })
 export class CustomerComponent implements OnInit {
   public routes: ICustomerRoute[] = ROUTES;
-  public subscribeMobile!: Subscription;
   public isMobile!: boolean;
   public show!: boolean;
   public state = 'ready';
@@ -25,6 +23,6 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => { this.show = true; }, 0);
-    this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
+    this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
   }
 }

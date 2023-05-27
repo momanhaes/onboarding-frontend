@@ -4,7 +4,6 @@ import { LIST_ANIMATION_LATERAL } from '../shared/animations/list.animation';
 import { IStyleguideRoute } from '../shared/interfaces/styleguide.interface';
 import { WindowService } from '../shared/services/window.service';
 import { ROUTES } from './styleguide.content';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-styleguide',
@@ -14,10 +13,9 @@ import { Subscription } from 'rxjs';
 })
 export class StyleguideComponent implements OnInit {
   public routes: IStyleguideRoute[] = ROUTES;
-  public subscribeMobile!: Subscription;
-  public isMobile!: boolean;
-  public show!: boolean;
-  public state = 'ready';
+  public state: string = 'ready';
+  public show: boolean = false;
+  public isMobile: boolean;
 
   constructor(private windowService: WindowService) {
     this.isMobile = window.innerWidth <= windowService.widthMobile;
@@ -25,6 +23,6 @@ export class StyleguideComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => { this.show = true; }, 0);
-    this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
+    this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
   }
 }

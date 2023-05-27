@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { WindowService } from '../../services/window.service';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { KeyType, LocalStorageService } from '../../services/local-storage.service';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { ETema, IHeaderRoute } from '../../interfaces/shared.interface';
 import { HEADER_ROUTES } from '../../shared.content';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,20 +14,13 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   public themeIcon: { icon: string; label: string };
   public routes: IHeaderRoute[] = HEADER_ROUTES;
-  public subscribeMobile!: Subscription;
-  public isMobile: boolean;
   public state = 'ready';
 
-  constructor(
-    private windowService: WindowService,
-    private localStorageService: LocalStorageService
-  ) {
-    this.isMobile = window.innerWidth <= windowService.widthMobile;
+  constructor(private localStorageService: LocalStorageService) {
     this.themeIcon = { icon: 'light_mode', label: ETema.LIGHT };
   }
 
   public ngOnInit(): void {
-    this.subscribeMobile = this.windowService.isMobile.subscribe((isMobile: boolean) => (this.isMobile = isMobile));
     this.verifyTheme();
   }
 
