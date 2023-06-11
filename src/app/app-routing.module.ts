@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { GitHubSearchComponent } from './pages/gh-search/gh-search.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { GitHubSearchComponent } from './gh-search/gh-search.component';
 
 export const ROUTES: Routes = [
   {
