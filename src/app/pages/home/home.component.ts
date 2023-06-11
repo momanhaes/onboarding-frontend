@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
+import { ISocialNetwork } from 'src/app/shared/interfaces/shared.interface';
+import { SOCIAL_CONTENT } from 'src/app/shared/shared.content';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,21 @@ import { APPEARD } from 'src/app/shared/animations/appeard.animation';
   styleUrls: ['./home.component.scss'],
   animations: [APPEARD],
 })
-export class HomeComponent {
-  public state = 'ready';
+export class HomeComponent implements OnInit {
+  public show: boolean = false;
+  public state: string = 'ready';
+  public content: ISocialNetwork[] = SOCIAL_CONTENT;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.show = true;
+    }, 0);
+  }
+
+  public goTo(url: string): void {
+    let URL: string = '';
+    if (!/^http[s]?:\/\//.test(url)) { URL += 'http://'; }
+    URL += url;
+    window.open(URL, '_blank');
+  }
 }

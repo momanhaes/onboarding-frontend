@@ -1,22 +1,32 @@
 <div class="root" [@appeard]="state">
-  <div class="container-fluid">
+  <div class="container">
     <div class="content">
 
-      <div class="text-center mb-2">
-        <img class="img" src="/assets/angular.png" />
+      <div class="text-center mb-3">
+        <img class="img-profile rounded-circle" src="/assets/perfil.jpg" />
       </div>
 
-      <h1 id="home-title">Front End</h1>
+      <h1 id="home-title">Matheus Manhães</h1>
 
-      <p>Onboarding OmniChat</p>
+      <p>Desenvolvedor Frontend</p>
 
       <div class="bar"></div>
 
-      <p class="description">
-        Projeto referente ao onboarding de frontend da <strong>OmniChat</strong>.
-        <br>
-        Para acessar a listagem de clientes, clique no item <span class="color-primary"><strong>Clientes</strong></span> no menu do topo da página.
-      </p>
+      <p class="about">Tive meu primeiro contato com programação em 2010, virei desenvolvedor de software profissional
+        em 2019, mas sou entusiasta de tecnologia desde que me entendo por gente. Tenho experiência com várias
+        tecnologias como <span class="color-primary">JavaScript, TypeScript, HTML, CSS, SASS, Angular, Jasmine, Cypress,
+          NodeJS, RestAPIs, GraphQL, Ionic, entre outras.</span>
+        Sou bacharel em Sistemas de Informação, amo aprender coisas novas, ouvir boa música e assistir filmes cult.</p>
+
+      <div class="buttons">
+        <ng-container *ngFor="let item of content">
+          <button (click)="goTo(item.link)" [color]="item.color" [matTooltip]="item.tooltip" mat-mini-fab>
+            <img class="svg" [src]="item.svg">
+          </button>
+        </ng-container>
+      </div>
+
+      <p class="mt-3">Clique para acessar meu <a target="_blank" href="https://drive.google.com/file/d/1j-PP9Ub1SSOvNypuRxX5whkPNqoDQbVI/view?usp=drive_link"><span class="text-primary">currículo</span></a>.</p>
 
     </div>
   </div>

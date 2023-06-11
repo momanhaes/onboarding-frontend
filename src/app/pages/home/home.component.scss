@@ -3,7 +3,7 @@
 .root {
     @include grid(32);
 
-    .container-fluid {
+    .container {
         @include grid-column-span(32);
         margin-bottom: 32px;
         margin-top: 32px;
@@ -31,22 +31,52 @@
                 text-align: center;
             }
 
+            .row {
+                text-align: center;
+                margin-top: 4px;
+            }
+
+            .icon {
+                color: $color-primary;
+                font-size: 65px;
+            }
+
+            .text {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
             .bar {
                 margin: 1.5rem 0;
                 border-bottom: 1px solid $color-border;
             }
 
-            .description {
-                text-align: center;
+            .about {
+                text-align: justify;
                 line-height: 1.5;
                 margin-top: 1rem;
             }
 
-            .img {
-                max-width: 5rem;
-                max-height: 5rem;
+            .buttons {
+                @include center;
+                margin-top: 2rem;
+
+                button {
+                    margin: 10px;
+                }
+
+                .svg {
+                    @include center;
+                    width: 14px;
+                }
+            }
+
+            .img-profile {
+                max-width: 10rem;
+                max-height: 10rem;
                 transform: scale(1);
                 transition: transform 0.1s;
+                border: 0.5rem solid $color-primary;
 
                 @include large-and-up {
                     &:hover {
