@@ -1,29 +1,57 @@
-<div *ngFor="let customer of data" [@appeard]="state">
-  <div class="content">
-    <div class="name">
-      <app-item label="Nome" value="{{ customer.name ? customer.name : '-' }}" type="standard"></app-item>
-    </div>
-
-    <div class="edit">
-      <button (click)="edit(customer)" color="basic" mat-mini-fab>
-        <mat-icon>edit</mat-icon>
-      </button>
-    </div>
-    
-    <div class="email">
-      <app-item label="E-mail" value="{{ customer.email ? customer.email : '-' }}" type="standard"></app-item>
-    </div>
-
-    <div class="cpf">
-      <app-item label="CPF" value="{{ customer.cpf ? (customer.cpf | cpf) : '-' }}" type="standard"></app-item>
-    </div>
-
-    <div class="cel">
-      <app-item label="Celular" value="{{ customer.cel ? (customer.cel | cel) : '-' }}" type="standard"></app-item>
-    </div>
-
-    <div class="state">
-      <app-item label="Estado" value="{{ customer.state ? customer.state : '-' }}" type="standard"></app-item>
+<ng-container *ngIf="!isProfile">
+  <div *ngFor="let customer of customers" [@appeard]="state">
+    <div class="content">
+      <div class="customer-name">
+        <app-item label="Nome" value="{{ customer.name ? customer.name : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="edit">
+        <button (click)="edit(customer)" color="basic" mat-mini-fab>
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+      
+      <div class="email">
+        <app-item label="E-mail" value="{{ customer.email ? customer.email : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="cpf">
+        <app-item label="CPF" value="{{ customer.cpf ? (customer.cpf | cpf) : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="cel">
+        <app-item label="Celular" value="{{ customer.cel ? (customer.cel | cel) : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="state">
+        <app-item label="Estado" value="{{ customer.state ? customer.state : '-' }}" type="standard"></app-item>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="isProfile">
+  <div *ngFor="let repo of repos" [@appeard]="state">
+    <div class="content">
+      <div class="repo-name">
+        <app-item label="Nome" value="{{ repo.name ? repo.name : '-' }}" type="standard"></app-item>
+      </div>
+      
+      <div class="description">
+        <app-item label="Descrição" value="{{ repo.description ? repo.description : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="forks">
+        <app-item label="Forks" [value]="repo.forks" type="standard"></app-item>
+      </div>
+  
+      <div class="language">
+        <app-item label="Linguagem" value="{{ repo.language ? repo.language : '-' }}" type="standard"></app-item>
+      </div>
+  
+      <div class="url">
+        <app-item *ngIf="repo.html_url" [isIcon]="true" label="URL" value="link" type="standard" (click)="goTo(repo.html_url)"></app-item>
+      </div>
+    </div>
+  </div>
+</ng-container>

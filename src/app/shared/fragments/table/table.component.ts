@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -6,7 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { CustomerService } from '../../services/customer.service';
 import { ICustomer, ICustomerEvent } from '../../interfaces/customer.interface';
-import { Router } from '@angular/router';
+import { GithubService } from '../../services/github.service';
+import { IRepo, IRepoEvent } from '../../interfaces/profile.interface';
 
 @Component({
   selector: 'app-table',
@@ -15,38 +17,52 @@ import { Router } from '@angular/router';
   animations: [APPEARD],
 })
 export class TableComponent implements AfterViewInit, OnInit {
+  @ViewChild(MatTable) public reposTable!: MatTable<IRepo>;
+  @ViewChild(MatTable) public customerTable!: MatTable<ICustomer>;
+
   @ViewChild(MatPaginator) public paginator!: MatPaginator;
-  @ViewChild(MatTable) public table!: MatTable<ICustomer>;
   @ViewChild(MatSort) public sort!: MatSort;
-  
-  @Input() public data!: ICustomer[];
 
-  public dataSource!: MatTableDataSource<ICustomer>;
-  public state = 'ready';
+  @Input() public repos: IRepo[] = [];
+  @Input() public customers: ICustomer[] = [];
+  @Input() public isProfile: boolean = false;
 
-  public displayedColumns: string[] = [
-    'id',
-    'name',
-    'email',
-    'state',
-    'cel',
-    'edit',
-  ];
+  public customerDataSource!: MatTableDataSource<ICustomer>;
+  public reposDataSource!: MatTableDataSource<IRepo>;
 
-  constructor(private router: Router, private customerService: CustomerService) {}
+  public displayedColumns: string[] = [];
+  public state: string = 'ready';
+
+  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService) { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.data);
+    if (this.isProfile) {
+      this.reposDataSource = new MatTableDataSource(this.repos);
+    } else {
+      this.customerDataSource = new MatTableDataSource(this.customers);
+    }
+
+    this.setDisplayedColumns();
 
     this.customerService.notifier.subscribe((event: ICustomerEvent) => {
-      this.dataSource.data = event.customers;
+      this.customerDataSource.data = event.customers;
+    });
+
+    this.gitHubService.notifier.subscribe((event: IRepoEvent) => {
+      this.reposDataSource.data = event.repos;
     });
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    if (this.table?.dataSource) { this.table.dataSource = this.dataSource; }
+    if (this.isProfile) {
+      this.reposDataSource.sort = this.sort;
+      this.reposDataSource.paginator = this.paginator;
+      if (this.reposTable?.dataSource) { this.reposTable.dataSource = this.reposDataSource; }
+    } else {
+      this.customerDataSource.sort = this.sort;
+      this.customerDataSource.paginator = this.paginator;
+      if (this.customerTable?.dataSource) { this.customerTable.dataSource = this.customerDataSource; }
+    }
 
     const paginator = this.paginator?._intl;
 
@@ -58,6 +74,10 @@ export class TableComponent implements AfterViewInit, OnInit {
       paginator.itemsPerPageLabel = 'Itens por página';
       paginator.getRangeLabel = this.getPaginatorRangeLabel;
     }
+  }
+
+  public setDisplayedColumns(): void {
+    this.displayedColumns = this.isProfile ? ['name', 'description', 'forks', 'language', 'url',] : ['id', 'name', 'email', 'state', 'cel', 'edit',];
   }
 
   public getPaginatorRangeLabel(page: number, pageSize: number, length: number): string {
@@ -79,5 +99,17 @@ export class TableComponent implements AfterViewInit, OnInit {
     if (!customer.id) { return; }
 
     this.router.navigate(['/customer/register', customer.id]);
+  }
+
+  public goTo(url: string): void {
+    let URL: string = '';
+
+    if (!/^http[s]?:\/\//.test(url)) {
+      URL += 'http://';
+    }
+
+    URL += url;
+
+    window.open(URL, '_blank');
   }
 }

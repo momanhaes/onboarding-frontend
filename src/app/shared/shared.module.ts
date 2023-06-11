@@ -11,6 +11,7 @@ import { CustomerService } from './services/customer.service';
 import { NotificationService } from './services/notification.service';
 import { LocalStorageService } from './services/local-storage.service';
 import { CEPService } from './services/cep.service';
+import { GithubService } from './services/github.service';
 
 const MODULES = [
   ComponentsModule,
@@ -22,7 +23,8 @@ const SERVICES = [
   NotificationService,
   CustomerService,
   WindowService,
-  CEPService
+  GithubService,
+  CEPService,
 ];
 
 @NgModule({

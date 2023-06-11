@@ -16,18 +16,19 @@
             label="Clientes" 
             placeholder="Pesquisar clientes..."
             control="customerControl" 
-            type="text">
+            type="text"
+            [required]="false">
           </app-input>
         </div>
       </div>
 
       <ng-container *ngIf="!isLoading && customers.length">
         <div class="customer-table" *ngIf="!isMobile">
-          <app-table [data]="customers"></app-table>
+          <app-table [customers]="customers"></app-table>
         </div>
         
         <div class="customer-list" *ngIf="isMobile">
-            <app-list [data]="customers"></app-list>
+            <app-list [customers]="customers"></app-list>
         </div>
       </ng-container>
 

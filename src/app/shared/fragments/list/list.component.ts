@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { CustomerService } from '../../services/customer.service';
 import { ICustomer, ICustomerEvent } from '../../interfaces/customer.interface';
-import { Router } from '@angular/router';
+import { IRepo, IRepoEvent } from '../../interfaces/profile.interface';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-list',
@@ -11,19 +13,34 @@ import { Router } from '@angular/router';
   animations: [APPEARD],
 })
 export class ListComponent implements OnInit {
-  public state = 'ready';
+  @Input() repos: IRepo[] = [];
+  @Input() customers: ICustomer[] = [];
+  @Input() isProfile: boolean = false;
+  
+  public state: string = 'ready';
 
-  @Input() data!: ICustomer[];
-
-  constructor(private router: Router, private customerService: CustomerService) {}
+  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService) {}
 
   ngOnInit(): void {
-    this.customerService.notifier.subscribe((event: ICustomerEvent) => this.data = event.customers);
+    this.customerService.notifier.subscribe((event: ICustomerEvent) => this.customers = event.customers);
+    this.gitHubService.notifier.subscribe((event: IRepoEvent) => this.repos = event.repos);
   }
 
   public edit(customer: ICustomer): void {
     if (!customer.id) { return; }
     
     this.router.navigate(['/customer/register', customer.id]);
+  }
+
+  public goTo(url: string): void {
+    let URL: string = '';
+    
+    if (!/^http[s]?:\/\//.test(url)) {
+        URL += 'http://';
+    }
+
+    URL += url;
+
+    window.open(URL, '_blank');
   }
 }

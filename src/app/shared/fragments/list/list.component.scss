@@ -8,7 +8,7 @@
   background-color: $color-background;
   border-bottom: 1px solid $color-primary;
 
-  .name {
+  .customer-name {
     @include grid-column-span(28);
   }
 
@@ -30,5 +30,25 @@
 
   .state {
     @include grid-column-span(12);
+  }
+
+  .repo-name {
+    @include grid-column-span(32);
+  }
+
+  .description {
+    @include grid-column-span(32);
+  }
+
+  .forks {
+    @include grid-column-span(12);
+  }
+
+  .language {
+    @include grid-column-span(16);
+  }
+
+  .url {
+    @include grid-column-span(4);
   }
 }

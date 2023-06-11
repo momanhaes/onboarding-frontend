@@ -17,6 +17,7 @@ export enum EOrigin {
   DELETE = 'delete',
   EDIT = 'edit',
   CREATE = 'create',
+  PROFILE = 'profile',
 }
 
 export interface IDialogData {
@@ -36,4 +37,11 @@ export interface ICEP {
   gia: string;
   ddd: string;
   siafi: string;
+}
+
+export interface ISocialNetwork {
+  link: string;
+  color: string;
+  svg: string;
+  tooltip: string;
 }

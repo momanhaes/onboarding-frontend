@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { GitHubSearchComponent } from './pages/gh-search/gh-search.component';
 
 export const ROUTES: Routes = [
   {
@@ -13,6 +14,10 @@ export const ROUTES: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'gh-search',
+    component: GitHubSearchComponent,
   },
   {
     path: 'customer',

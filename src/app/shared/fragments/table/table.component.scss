@@ -56,6 +56,24 @@ mat-paginator {
     cursor: pointer;
   }
 
+  .mat-column-description {
+    width: 50%;
+  }
+
+  .mat-column-forks {
+    width: 10%;
+    padding-left: 8px;
+  }
+
+  .mat-column-language {
+    width: 10%;
+  }
+
+  .mat-column-url {
+    width: 5%;
+    cursor: pointer;
+  }
+
   .cursor-default {
     cursor: default;
   }

@@ -13,6 +13,7 @@ import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const MODULES = [
   CommonModule,
@@ -27,7 +28,8 @@ const FRAGMENTS = [
   ListComponent,
   TableComponent,
   HeaderComponent,
-  FooterComponent
+  FooterComponent,
+  ProfileComponent
 ]; 
 
 @NgModule({

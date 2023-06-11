@@ -1,0 +1,108 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+  @include grid(32);
+
+  .container {
+    @include grid-column-span(32);
+    margin-bottom: 32px;
+    margin-top: 32px;
+
+    .content {
+      padding: 64px;
+      border-radius: 0.8rem;
+      margin: 58px 0 24px 0;
+      border: 0px !important;
+      background: $color-background;
+      box-shadow: 0px 8px 24px $color-shadow;
+
+      @include large-and-down {
+        padding: 32px;
+      }
+
+      .core {
+        @include between;
+        @include large-and-down {
+          display: block;
+          text-align: center;
+        }
+
+        .text {
+          text-decoration: none;
+
+          p {
+            @include large-and-down {
+              text-align: justify;
+              margin-bottom: 24px;
+            }
+          }
+        }
+
+        .profile-header {
+          p {
+            @include start;
+            cursor: pointer;
+
+            mat-icon {
+              margin-right: 4px;
+            }
+          }
+
+          @include large-and-down {
+            display: block;
+            margin-bottom: 24px;
+          }
+        }
+
+        .input {
+          @include start;
+          width: 50%;
+
+          @include large-and-down {
+            width: 100%;
+          }
+
+          mat-icon {
+            cursor: default;
+            margin-right: 12px;
+          }
+        }
+
+        app-input {
+          width: 100%;
+        }
+      }
+
+      .profile {
+        margin-top: 32px;
+      }
+
+      .profile-table {
+        width: 100%;
+        margin-top: 32px;
+        box-shadow: 0px 8px 24px $color-shadow;
+      }
+
+      .profile-list {
+        width: 100%;
+        margin-top: 32px;
+        box-shadow: 0px 8px 24px $color-shadow;
+        border: 1px solid rgba($color-terciery, 0.1) !important;
+
+        @include large-and-wide {
+          box-shadow: none;
+          border: none !important;
+        }
+      }
+
+      .loading {
+        @include center;
+        margin-top: 16px;
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+}
