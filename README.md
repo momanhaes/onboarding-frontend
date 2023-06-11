@@ -1,6 +1,7 @@
-# Onboarding OmniChat - Frontend
+# Portal Matheus Manhães
 
-Bem-vindo ao projeto do onboarding de frontend da OmniChat! Basicamente, neste projeto, foi implementado um CRUD de clientes usando o Local Storage. A aplicação inicialmente vai carregar alguns clientes mockados, mas é possível também criar novos clientes manualmente, assim como editar, excluir, listar e pesquisar. Também foi implementado um _styleguide_ onde é possível ver os componentes disponíveis para uso na aplicação e sua uma respectiva documentação.
+Bem-vindo ao Portal Matheus Manhães! Neste projeto foi implementado um menu de componentes úteis para que o projeto possa ser usado como modelo de laboratório para implementações de estilos, testes de bibliotecas, implementações de testes unitários e e2e, aplicações de boas práticas e padrões de projetos.
+
 ## Tecnologias utilizadas
 O projeto foi desenvolvido com o _framework_ Angular na versão 15.
 
@@ -36,6 +37,8 @@ Abra [http://localhost:4200](http://localhost:4200) em seu navegador.
 ### Rotas públicas da aplicação
 
 * `/home` - Página inicial de apresentação do projeto.
+
+* `/gh-search` - Página do buscador de repositórios.
 
 * `/customer/list` - Página de acesso à listagem de clientes.
 
