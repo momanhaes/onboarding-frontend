@@ -46,7 +46,11 @@
                     .history {
                         @include end;
                         cursor: pointer;
-                        margin: 0 1rem 1.5rem 0;
+                        margin: 0.5rem 1rem 1.5rem 1rem;
+
+                        @include large-and-down {
+                            margin: 0.5rem 0.8rem 1.5rem 1rem;
+                        }
                     }
                 }
 
