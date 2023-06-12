@@ -3,7 +3,7 @@ import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { KeyType, LocalStorageService } from '../../services/local-storage.service';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { ETema, IHeaderRoute } from '../../interfaces/shared.interface';
-import { HEADER_ROUTES } from '../../shared.content';
+import { HEADER_ROUTES, PROJECT_ROUTES } from '../../shared.content';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +14,7 @@ import { HEADER_ROUTES } from '../../shared.content';
 export class HeaderComponent implements OnInit {
   public themeIcon: { icon: string; label: string };
   public routes: IHeaderRoute[] = HEADER_ROUTES;
+  public projectsRoutes: IHeaderRoute[] = PROJECT_ROUTES;
   public state = 'ready';
 
   constructor(private localStorageService: LocalStorageService) {

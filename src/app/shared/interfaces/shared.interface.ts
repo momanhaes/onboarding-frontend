@@ -8,7 +8,7 @@ export enum ETema {
 }
 
 export interface IHeaderRoute {
-  route: string;
+  route?: string;
   icon: string;
   label: string;
 }

@@ -15,7 +15,7 @@ export class CustomerComponent implements OnInit {
   public routes: ICustomerRoute[] = ROUTES;
   public state: string = 'ready';
   public show: boolean = false;
-  public isMobile!: boolean;
+  public isMobile: boolean;
 
   constructor(private windowService: WindowService) {
     this.isMobile = window.innerWidth <= windowService.widthMobile;

@@ -1,0 +1,84 @@
+@import "/src/app/scss/includes.scss";
+
+.root {
+    @include grid(32);
+
+    .container-fluid {
+        @include grid-column-span(32);
+        margin-bottom: 32px;
+        margin-top: 32px;
+
+        .content {
+            border: 0px;
+            padding: 64px;
+            border-radius: 0.8rem;
+            margin: 58px 0 24px 0;
+            background: $color-background;
+            box-shadow: 0px 8px 24px $color-shadow;
+
+            @include large-and-down {
+                padding: 32px 8px;
+            }
+
+            h1 {
+                text-align: center;
+                font-weight: bold;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            .calculator-container {
+                @include center;
+                margin-top: 1.5rem;
+
+                .calculator {
+                    border: 0px;
+                    width: 370px;
+                    margin: 18px;
+                    height: 490px;
+                    padding: 21px;
+                    border-radius: 0.8rem;
+                    background: $color-background;
+                    box-shadow: 0px 8px 24px $color-shadow;
+
+                    .history {
+                        @include end;
+                        cursor: pointer;
+                        margin: 0 1rem 1.5rem 0;
+                    }
+                }
+
+                .row {
+                    margin: 1rem 0;
+                }
+
+                .calc-number {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+
+                .calc-operator {
+                    font-size: 2rem;
+                    vertical-align: bottom;
+                }
+
+                .display {
+                    @include between;
+
+                    mat-form-field {
+                        width: 90%;
+                        margin-left: 21px;
+
+                        input {
+                            text-align: right;
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

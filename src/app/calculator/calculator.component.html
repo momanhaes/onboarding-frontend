@@ -1,0 +1,136 @@
+<div class="root" [@appeard]="state">
+  <div class="container-fluid">
+    <div class="content">
+      <h1>Calculadora Simples</h1>
+      <p>Realize cálculos rápidos e precisos com apenas alguns cliques.</p>
+
+      <div class="calculator-container">
+
+        <div class="calculator">
+          <div class="history">
+            <mat-icon (click)="openBottomSheet()" matTooltip="Mostrar histórico" matTooltipPosition="above" id="btnHistory">history</mat-icon>
+          </div>
+
+          <div class="display row">
+            <div class="col-2">
+              <button (click)="clean()" matTooltip="Limpar display" matTooltipPosition="above" color="warn" mat-fab>
+                <span class="calc-number">C</span>
+              </button>
+            </div>
+    
+            <div class="col-10">
+              <mat-form-field subscriptSizing="dynamic" appearance="outline">
+                <input type="text" id="display" name="display" [value]="display" readonly matInput />
+              </mat-form-field>
+            </div>
+          </div>
+    
+          <div class="row">
+            <div class="col-3">
+              <button (click)="addNumber('7')" id="btn7" color="basic" mat-fab>
+                <span class="calc-number">7</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('8')" id="btn8" color="basic" mat-fab>
+                <span class="calc-number">8</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('9')" id="btn9" color="basic" mat-fab>
+                <span class="calc-number">9</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="defineOperator('/')" matTooltip="Divisão" matTooltipPosition="right" id="btnDivision" color="primary" mat-fab>
+                <span class="calc-operator">÷</span>
+              </button>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-3">
+              <button (click)="addNumber('4')" id="btn4" color="basic" mat-fab>
+                <span class="calc-number">4</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('5')" id="btn5" color="basic" mat-fab>
+                <span class="calc-number">5</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('6')" id="btn6" color="basic" mat-fab>
+                <span class="calc-number">6</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="defineOperator('*')" matTooltip="Multiplicação" matTooltipPosition="right" id="btnMultiplication" color="primary" mat-fab>
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-3">
+              <button (click)="addNumber('1')" id="btn1" color="basic" mat-fab>
+                <span class="calc-number">1</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('2')" id="btn2" color="basic" mat-fab>
+                <span class="calc-number">2</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('3')" id="btn3" color="basic" mat-fab>
+                <span class="calc-number">3</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="defineOperator('-')" matTooltip="Subtração" matTooltipPosition="right" id="btnSubtration" color="primary" mat-fab>
+                <mat-icon>remove</mat-icon>
+              </button>          
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-3">
+              <button (click)="addNumber('0')" id="btn0" color="basic" mat-fab>
+                <span class="calc-number">0</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="addNumber('.')" id="btnDecimal" color="basic" mat-fab>
+                <span class="calc-number">.</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="calculate()" matTooltip="Mostrar resultado" matTooltipPosition="below" id="btnCalculate" color="accent" mat-fab>
+                <span class="calc-operator">=</span>
+              </button>
+            </div>
+    
+            <div class="col-3">
+              <button (click)="defineOperator('+')" matTooltip="Adição" matTooltipPosition="right" id="btnAddiction" color="primary" mat-fab>
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

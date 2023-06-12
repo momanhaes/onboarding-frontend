@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // COMPONENTS
@@ -29,6 +30,7 @@ import { ToastyComponent } from './toasty/toasty.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ToastyListComponent } from './toasty-list/toasty-list.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 // DIRECTIVES
 import { ResizeDirective } from '../directives/resize.directive';
@@ -51,6 +53,7 @@ const MATERIAL_MODULES = [
   MatPaginatorModule,
   MatSortModule,
   MatDialogModule,
+  MatBottomSheetModule,
 ];
 
 const COMPONENTS = [
@@ -62,6 +65,7 @@ const COMPONENTS = [
   DialogComponent,
   CepComponent,
   ToastyListComponent,
+  BottomSheetComponent
 ];
 
 const DIRECTIVES = [

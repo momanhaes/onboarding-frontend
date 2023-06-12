@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GitHubSearchComponent } from './gh-search/gh-search.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ const INTERNAL_MODULES = [
 const PAGES = [
   HomeComponent,
   NotFoundComponent,
-  GitHubSearchComponent
+  GitHubSearchComponent,
+  CalculatorComponent,
 ];
 
 const COMPONENTS = [

@@ -1,0 +1,19 @@
+<div class="bottom-sheet">
+  <div class="title">
+    <span>Histórico</span>
+
+    <button *ngIf="data.length" (click)="cleanHistory()" matTooltip="Limpar histórico" matTooltipPosition="above" color="warn" mat-mini-fab>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <ng-container *ngIf="data.length">
+    <p *ngFor="let result of data">
+      {{ result }}
+    </p>
+  </ng-container>
+
+  <ng-container *ngIf="!data.length">
+    <p>Sem histórico</p>
+  </ng-container>
+</div>

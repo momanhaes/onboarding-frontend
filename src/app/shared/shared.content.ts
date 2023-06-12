@@ -7,14 +7,26 @@ export const HEADER_ROUTES: IHeaderRoute[] = [
     label: 'Início',
   },
   {
+    label: 'Projetos',
+    icon: 'folder',
+  }
+];
+
+export const PROJECT_ROUTES: IHeaderRoute[] = [
+  {
+    route: '/calculator',
+    icon: 'calculate',
+    label: 'Calculadora',
+  },
+  {
     route: '/customer',
     icon: 'group',
-    label: 'Clientes',
+    label: 'CRUD Clientes',
   },
   {
     route: '/gh-search',
     icon: 'person_search',
-    label: 'GH Search',
+    label: 'GitHub Search',
   },
   {
     route: '/styleguide',

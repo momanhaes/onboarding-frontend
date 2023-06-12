@@ -10,8 +10,9 @@ import { WindowService } from './services/window.service';
 import { CustomerService } from './services/customer.service';
 import { NotificationService } from './services/notification.service';
 import { LocalStorageService } from './services/local-storage.service';
-import { CEPService } from './services/cep.service';
+import { CalculatorService } from './services/calculator.service';
 import { GithubService } from './services/github.service';
+import { CEPService } from './services/cep.service';
 
 const MODULES = [
   ComponentsModule,
@@ -21,6 +22,7 @@ const MODULES = [
 const SERVICES = [
   LocalStorageService,
   NotificationService,
+  CalculatorService,
   CustomerService,
   WindowService,
   GithubService,

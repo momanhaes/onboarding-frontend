@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GitHubSearchComponent } from './gh-search/gh-search.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 export const ROUTES: Routes = [
   {
@@ -14,6 +15,10 @@ export const ROUTES: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'calculator',
+    component: CalculatorComponent,
   },
   {
     path: 'gh-search',

@@ -1,0 +1,13 @@
+@import "/src/app/scss/includes.scss";
+
+.bottom-sheet {
+    padding: 1rem;
+
+    .title {
+        @include between;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
