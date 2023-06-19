@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GitHubSearchComponent } from './gh-search.component';
+import { SharedModule } from '../shared/shared.module';
 
 describe('GitHubSearchComponent', () => {
   let component: GitHubSearchComponent;
@@ -11,7 +12,8 @@ describe('GitHubSearchComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ 
         BrowserAnimationsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        SharedModule
       ],
       declarations: [ GitHubSearchComponent ]
     })
@@ -22,7 +24,7 @@ describe('GitHubSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
 });
