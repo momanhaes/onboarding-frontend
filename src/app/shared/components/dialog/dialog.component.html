@@ -7,8 +7,12 @@
     {{ data.message }}
   </div>
 
-  <div mat-dialog-actions>
+  <div mat-dialog-actions *ngIf="data.origin !== 'profile'">
     <app-button (click)="cancel()" mat-dialog-close icon="close" theme="warn" label="Cancelar"></app-button>
     <app-button (click)="confirm()" mat-dialog-close icon="check" theme="primary" label="Confirmar"></app-button>
+  </div>
+
+  <div mat-dialog-actions *ngIf="data.origin === 'profile'">
+    <app-button (click)="confirm()" mat-dialog-close icon="check" theme="primary" label="Ok"></app-button>
   </div>
 </div>
