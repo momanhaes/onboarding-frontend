@@ -9,6 +9,7 @@ import { CustomerService } from '../../services/customer.service';
 import { ICustomer, ICustomerEvent } from '../../interfaces/customer.interface';
 import { GithubService } from '../../services/github.service';
 import { IRepo, IRepoEvent } from '../../interfaces/profile.interface';
+import { HelperLib } from '../../lib/helper.lib';
 
 @Component({
   selector: 'app-table',
@@ -33,7 +34,7 @@ export class TableComponent implements AfterViewInit, OnInit {
   public displayedColumns: string[] = [];
   public state: string = 'ready';
 
-  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService) { }
+  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService, private helper: HelperLib) { }
 
   ngOnInit(): void {
     if (this.isProfile) {
@@ -102,14 +103,6 @@ export class TableComponent implements AfterViewInit, OnInit {
   }
 
   public goTo(url: string): void {
-    let URL: string = '';
-
-    if (!/^http[s]?:\/\//.test(url)) {
-      URL += 'http://';
-    }
-
-    URL += url;
-
-    window.open(URL, '_blank');
+    this.helper.goTo(url);
   }
 }

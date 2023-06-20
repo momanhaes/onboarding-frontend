@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { ISocialNetwork } from 'src/app/shared/interfaces/shared.interface';
 import { SOCIAL_CONTENT } from 'src/app/shared/shared.content';
+import { HelperLib } from '../shared/lib/helper.lib';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,8 @@ export class HomeComponent implements OnInit {
   public state: string = 'ready';
   public content: ISocialNetwork[] = SOCIAL_CONTENT;
 
+  constructor(private helper: HelperLib) { }
+
   ngOnInit() {
     setTimeout(() => {
       this.show = true;
@@ -21,9 +24,6 @@ export class HomeComponent implements OnInit {
   }
 
   public goTo(url: string): void {
-    let URL: string = '';
-    if (!/^http[s]?:\/\//.test(url)) { URL += 'http://'; }
-    URL += url;
-    window.open(URL, '_blank');
+    this.helper.goTo(url);
   }
 }

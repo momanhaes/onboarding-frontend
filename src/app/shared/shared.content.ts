@@ -1,37 +1,75 @@
 import { IHeaderRoute, ISocialNetwork } from "./interfaces/shared.interface";
 
-export const HEADER_ROUTES: IHeaderRoute[] = [
-  {
-    route: '/home',
-    icon: 'home',
-    label: 'Início',
-  },
-  {
-    label: 'Projetos',
-    icon: 'folder',
-  }
-];
-
-export const PROJECT_ROUTES: IHeaderRoute[] = [
+const PROJECTS_ROUTES: IHeaderRoute[] = [
   {
     route: '/calculator',
     icon: 'calculate',
     label: 'Calculadora',
+    isExternal: false,
   },
   {
     route: '/customer',
     icon: 'group',
     label: 'CRUD Clientes',
+    isExternal: false,
   },
   {
     route: '/gh-search',
     icon: 'person_search',
     label: 'GitHub Search',
+    isExternal: false,
+  },
+  {
+    route: 'https://gerenciador-figurinhas.netlify.app',
+    icon: 'contact_page',
+    label: 'Gerenciador de Figurinhas',
+    isExternal: true,
   },
   {
     route: '/styleguide',
     icon: 'format_paint',
     label: 'Styleguide',
+    isExternal: false,
+  },
+];
+
+export const HEADER_ROUTES: IHeaderRoute[] = [
+  {
+    route: '/home',
+    icon: 'home',
+    label: 'Início',
+    isExternal: false,
+  },
+  {
+    route: '',
+    label: 'Projetos',
+    icon: 'folder',
+    children: PROJECTS_ROUTES,
+    isExternal: false,
+  },
+  {
+    route: '/experience',
+    icon: 'work',
+    label: 'Experiência',
+    isExternal: false,
+  },
+  {
+    route: '/education',
+    icon: 'school',
+    label: 'Educação',
+    isExternal: false,
+  },
+  {
+    route: '/awards',
+    icon: 'emoji_events',
+    label: 'Premiações',
+    isExternal: false,
+  },
+  {
+    route: '/blog',
+    icon: 'article',
+    label: 'Blog',
+    isExternal: false,
   },
 ];
 

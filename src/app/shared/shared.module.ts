@@ -13,6 +13,8 @@ import { LocalStorageService } from './services/local-storage.service';
 import { CalculatorService } from './services/calculator.service';
 import { GithubService } from './services/github.service';
 import { CEPService } from './services/cep.service';
+import { FormatterLib } from './lib/formatter.lib';
+import { HelperLib } from './lib/helper.lib';
 
 const MODULES = [
   ComponentsModule,
@@ -26,7 +28,9 @@ const SERVICES = [
   CustomerService,
   WindowService,
   GithubService,
+  FormatterLib,
   CEPService,
+  HelperLib,
 ];
 
 @NgModule({

@@ -3,7 +3,9 @@ import { APPEARD } from 'src/app/shared/animations/appeard.animation';
 import { KeyType, LocalStorageService } from '../../services/local-storage.service';
 import { LIST_ANIMATION_LATERAL } from 'src/app/shared/animations/list.animation';
 import { ETema, IHeaderRoute } from '../../interfaces/shared.interface';
-import { HEADER_ROUTES, PROJECT_ROUTES } from '../../shared.content';
+import { HEADER_ROUTES } from '../../shared.content';
+import { HelperLib } from '../../lib/helper.lib';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,26 +16,16 @@ import { HEADER_ROUTES, PROJECT_ROUTES } from '../../shared.content';
 export class HeaderComponent implements OnInit {
   public themeIcon: { icon: string; label: string };
   public routes: IHeaderRoute[] = HEADER_ROUTES;
-  public projectsRoutes: IHeaderRoute[] = PROJECT_ROUTES;
-  public state = 'ready';
+  public state: string = 'ready';
 
-  constructor(private localStorageService: LocalStorageService) {
+  constructor(private localStorageService: LocalStorageService, private router: Router, private helper: HelperLib) {
     this.themeIcon = { icon: 'light_mode', label: ETema.LIGHT };
   }
 
   public ngOnInit(): void {
-    this.verifyTheme();
-  }
+    if (!this.localStorageService.has(KeyType.TEMA)) { return; }
 
-  public hasTheme(): boolean {
-    return this.localStorageService.has(KeyType.TEMA);
-  }
-
-  public verifyTheme(): void {
-    if (!this.hasTheme()) { return; }
-
-    const tema = this.localStorageService.get(KeyType.TEMA);
-    this.themeIcon = tema;
+    this.themeIcon = this.localStorageService.get(KeyType.TEMA);
 
     if (this.themeIcon.label === ETema.DARK) {
       document.body.classList.add('dark-theme');
@@ -44,9 +36,13 @@ export class HeaderComponent implements OnInit {
     return this.themeIcon.label === ETema.LIGHT ? 'Mudar para tema escuro' : 'Mudar para tema claro';
   }
 
-  public toggleTheme() {
+  public toggleTheme(): void {
     document.body.classList.toggle('dark-theme');
     this.themeIcon = this.themeIcon.label === ETema.LIGHT ? { icon: 'dark_mode', label: ETema.DARK } : { icon: 'light_mode', label: ETema.LIGHT };
     this.localStorageService.set(KeyType.TEMA, this.themeIcon);
+  }
+
+  public goTo(url: string, isExternal: boolean): void {
+    isExternal ? this.helper.goTo(url) : this.router.navigate([url]);
   }
 }

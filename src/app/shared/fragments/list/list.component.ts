@@ -5,6 +5,7 @@ import { CustomerService } from '../../services/customer.service';
 import { ICustomer, ICustomerEvent } from '../../interfaces/customer.interface';
 import { IRepo, IRepoEvent } from '../../interfaces/profile.interface';
 import { GithubService } from '../../services/github.service';
+import { HelperLib } from '../../lib/helper.lib';
 
 @Component({
   selector: 'app-list',
@@ -19,7 +20,7 @@ export class ListComponent implements OnInit {
   
   public state: string = 'ready';
 
-  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService) {}
+  constructor(private router: Router, private customerService: CustomerService, private gitHubService: GithubService, private helper: HelperLib) {}
 
   ngOnInit(): void {
     this.customerService.notifier.subscribe((event: ICustomerEvent) => this.customers = event.customers);
@@ -33,14 +34,6 @@ export class ListComponent implements OnInit {
   }
 
   public goTo(url: string): void {
-    let URL: string = '';
-    
-    if (!/^http[s]?:\/\//.test(url)) {
-        URL += 'http://';
-    }
-
-    URL += url;
-
-    window.open(URL, '_blank');
+    this.helper.goTo(url);
   }
 }
