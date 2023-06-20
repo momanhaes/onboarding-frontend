@@ -18,7 +18,7 @@
             <ng-container *ngFor="let item of routes">
               <button 
                 [matMenuTriggerFor]="item.children ? children : null" 
-                [routerLink]="item.route" 
+                [routerLink]="item.route ? item.route : null" 
                 class="button-menu"
                 mat-menu-item>
 
